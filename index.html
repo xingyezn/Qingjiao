@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>青椒之梯 · 项目申报导航</title>
+<meta name="description" content="面向高校青年教师的纵向科研项目资料导航，包含申报时间线、可搜索/筛选清单、收藏与日历导出。" />
+<link rel="icon" href="logo.png" />
+<style>
+  /* ===== 主题变量（明暗） ===== */
+  :root{
+    --bg: #0b0f14;           /* 深色背景，夜空 */
+    --bg-soft:#111827;       /* 卡片背景 */
+    --text:#e5e7eb;          /* 文字 */
+    --muted:#9ca3af;         /* 次级文字 */
+    --brand:#22c55e;         /* 品牌绿 */
+    --brand-2:#60a5fa;       /* 辅色蓝 */
+    --accent:#f59e0b;        /* 强调色（进度条） */
+    --danger:#f87171;        /* 紧急 */
+    --ok:#34d399;            /* 正常 */
+    --border:#1f2937;        /* 边框 */
+    --chip:#0f172a;          /* 筛选筹 */
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  [data-theme="light"]{
+    --bg:#f6f7fb; --bg-soft:#ffffff; --text:#0f172a; --muted:#475569; --brand:#16a34a; --brand-2:#2563eb; --accent:#ea580c; --danger:#dc2626; --ok:#059669; --border:#e2e8f0; --chip:#f1f5f9; --shadow: 0 10px 30px rgba(2,6,23,.08);
+  }
+
+  /* ===== 基础排版与布局 ===== */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  a{color:var(--brand-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{max-width:100%;display:block}
+
+  /* 顶部导航（玻璃拟态） */
+  header{
+    position:sticky;top:0;z-index:40;border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(15,23,42,.75), rgba(15,23,42,.5));
+    backdrop-filter:saturate(140%) blur(8px);
+  }
+  .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+  .nav .brand{display:flex;align-items:center;gap:10px}
+  .nav .brand img{width:34px;height:34px;border-radius:10px}
+  .nav .brand h1{margin:0;font-size:18px;letter-spacing:.5px}
+  .nav .grow{flex:1}
+  .nav .btn, .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);padding:8px 12px;border-radius:12px;cursor:pointer;text-decoration:none}
+  .btn:hover{box-shadow:var(--shadow)}
+
+  /* 英雄区 */
+  .hero{position:relative;overflow:hidden}
+  .hero-inner{max-width:1200px;margin:24px auto 0;padding:0 16px 24px}
+  .glass{
+    position:relative;border:1px solid var(--border);background:linear-gradient(135deg, rgba(34,197,94,.12), rgba(96,165,250,.12));
+    border-radius:18px;padding:18px;box-shadow:var(--shadow)
+  }
+  .hero h2{margin:0 0 6px;font-size:22px}
+  .hero p{margin:6px 0;color:var(--muted)}
+
+  /* 顶部快捷区 */
+  .top-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+  /* 主体区域 */
+  main{max-width:1200px;margin:0 auto;padding:0 16px 60px}
+  section{margin:26px 0}
+  h3{margin:0 0 12px;font-size:20px}
+
+  /* 卡片网格 */
+  .grid{display:grid;gap:16px}
+  @media(min-width:900px){.grid-3{grid-template-columns:2fr 1.5fr 1.5fr}}
+
+  /* 时间线（正在申报） */
+  .timeline{display:grid;gap:14px}
+  .item{border:1px solid var(--border);background:var(--bg-soft);border-radius:16px;padding:14px;display:grid;gap:8px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:999px;border:1px solid var(--border);background:var(--chip);font-size:12px;color:var(--muted)}
+  .level-nat{background:linear-gradient(90deg, #1e293b,#0f172a)}
+  .level-prov{background:linear-gradient(90deg, #0f172a,#111827)}
+  .title{display:flex;gap:10px;align-items:flex-start}
+  .title a{font-weight:700;font-size:16px}
+  .note{color:var(--muted)}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+  /* 进度条（距截止） */
+  .bar{height:8px;background:rgba(148,163,184,.25);border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+  .bar>span{display:block;height:100%;background:linear-gradient(90deg, var(--brand), var(--accent));width:0%}
+  .due{font-weight:600}
+  .due-soon{color:var(--danger)}
+  .due-open{color:var(--ok)}
+  .due-past{color:var(--muted)}
+
+  /* 工具条 */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+  .toolbar .search{flex:2;min-width:220px}
+  input[type="search"], select{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text)}
+  .chip{padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--chip);cursor:pointer}
+  .chip[aria-pressed="true"]{outline:2px solid var(--brand)}
+
+  /* 表格（已整理） */
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--border)}
+  th{background:linear-gradient(180deg, rgba(148,163,184,.15), transparent);text-align:left;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+
+  /* 页脚 */
+  footer{margin:26px 0;color:var(--muted);text-align:center}
+
+  /* 浮动按钮 */
+  .fab{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:50}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="青椒之梯 Logo" />
+      <h1>青椒之梯 · 项目申报导航</h1>
+    </div>
+    <span class="grow"></span>
+    <a class="btn" href="#ongoing">正在申报</a>
+    <a class="btn" href="#catalog">已整理</a>
+    <button id="themeToggle" class="btn" aria-label="切换明暗">🌓 主题</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="glass">
+      <h2>纵向项目，一站式时间线与资料库</h2>
+      <p>为高校青年教师（“青椒”）设计的申报导航：看进度、查指南、做收藏、导日历。</p>
+      <div class="top-actions">
+        <button class="btn" id="btnExportCSV">⬇️ 导出当前列表 CSV</button>
+        <button class="btn" id="btnShowOnlyStar">⭐ 仅看收藏</button>
+        <button class="btn" id="btnReset">🔄 重置筛选</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- 正在申报：时间线 + 筛选 -->
+  <section id="ongoing">
+    <h3>🎉 正在申报（自动计算剩余天数）</h3>
+    <div class="toolbar">
+      <input class="search" id="searchOngoing" type="search" placeholder="搜索：名称 / 备注 / 级别…" />
+      <select id="levelOngoing">
+        <option value="">全部级别</option>
+        <option value="国家级">国家级</option>
+        <option value="省部级">省部级</option>
+        <option value="省部级以上">省部级以上</option>
+      </select>
+      <div class="chips">
+        <button class="chip" data-chip="soon">临近截止</button>
+        <button class="chip" data-chip="open">未到期</button>
+        <button class="chip" data-chip="past">已截止</button>
+      </div>
+      <select id="sortOngoing">
+        <option value="end">按截止时间（近→远）</option>
+        <option value="start">按开始时间（近→远）</option>
+        <option value="name">按名称</option>
+      </select>
+    </div>
+
+    <div id="timeline" class="timeline"></div>
+  </section>
+
+  <!-- 已整理：表格 -->
+  <section id="catalog">
+    <h3>📚 已整理项目（点击名称直达官方指南）</h3>
+    <div class="toolbar">
+      <input class="search" id="searchCatalog" type="search" placeholder="搜索：名称 / 级别 / 难度…" />
+      <select id="levelCatalog">
+        <option value="">全部级别</option>
+        <option value="国家级">国家级</option>
+        <option value="省部级">省部级</option>
+        <option value="省部级以上">省部级以上</option>
+      </select>
+      <select id="sortCatalog">
+        <option value="序号">按序号</option>
+        <option value="名称">按名称</option>
+        <option value="级别">按级别</option>
+      </select>
+    </div>
+
+    <div class="glass">
+      <table id="catalogTable" aria-label="已整理项目清单">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>名称</th>
+            <th>级别</th>
+            <th>提交日期</th>
+            <th>难度</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 攻略与计划 -->
+  <section>
+    <h3>🧭 使用小贴士</h3>
+    <div class="grid grid-3">
+      <div class="glass">
+        <strong>① 收藏与同步</strong>
+        <p class="note">点击卡片上的 ⭐ 可收藏。收藏会保存在本地浏览器。</p>
+      </div>
+      <div class="glass">
+        <strong>② 日历一键导出</strong>
+        <p class="note">每个正在申报项目支持导出 <code>.ics</code>，加入你常用的日历。</p>
+      </div>
+      <div class="glass">
+        <strong>③ 明暗主题</strong>
+        <p class="note">右上角 🌓 切换主题，记忆在本地。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> 青椒之梯 · Made with ❤️ for 青年教师</footer>
+</main>
+
+<!-- 浮动按钮 -->
+<div class="fab">
+  <a class="btn" href="#ongoing">⬆️ 回到正在申报</a>
+  <a class="btn" href="#catalog">📚 去已整理</a>
+</div>
+
+<script>
+  // ===== 主题持久化 =====
+  (function(){
+    const KEY='qjzt-theme';
+    const saved = localStorage.getItem(KEY) || 'dark';
+    if(saved==='light') document.documentElement.setAttribute('data-theme','light');
+    document.getElementById('themeToggle').addEventListener('click',()=>{
+      const cur = document.documentElement.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', cur==='light'?'light':'');
+      localStorage.setItem(KEY, cur);
+    });
+  })();
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== 数据（来自你的 Markdown，稍作结构化） =====
+  const ongoingRaw = [
+    { id:1, name:'博后-面上', url:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', level:'国家级', start:'2025-08-01', end:'2025-08-31', note:'流动站提交' },
+    { id:2, name:'上海市哲学社会科学规划', url:'https://www.sh-popss.gov.cn/newsInfo.asp?idval=8831&sessionid=1795235380', level:'省部级', start:'2025-08-15', end:'2025-08-25', note:'需单位统一提交' },
+  ];
+
+  const catalogRaw = [
+    { 序号:1, 名称:'国家自然科学基金', 链接:'https://www.nsfc.gov.cn/publish/portal0/xmzn/2025/qy/', 级别:'国家级', 提交日期:'3月提交，8月出', 难度:'困难' },
+    { 序号:2, 名称:'国家社会科学基金', 链接:'http://www.nopss.gov.cn/n1/2025/0324/c431027-40445651.html', 级别:'国家级', 提交日期:'4月份', 难度:'困难' },
+    { 序号:3, 名称:'全国教育科学规划', 链接:'https://onsgep.moe.edu.cn/post/view/1777', 级别:'国家级', 提交日期:'4.28-5.30，8月出', 难度:'困难' },
+    { 序号:4, 名称:'教育部人文', 链接:'http://www.moe.gov.cn/s78/A13/tongzhi/202502/t20250221_1179941.html', 级别:'省部级', 提交日期:'2-3月', 难度:'较难' },
+    { 序号:5, 名称:'上海市自然科学基金', 链接:'https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/20250126/86f5c86419764eaabca96179149fd742.html', 级别:'省部级', 提交日期:'2月份', 难度:'较难' },
+    { 序号:6, 名称:'上海市哲学社会科学规划', 链接:'https://www.sh-popss.gov.cn/newsInfo.asp?idval=8831&sessionid=1795235380', 级别:'省部级', 提交日期:'8月份', 难度:'较难' },
+    { 序号:7, 名称:'上海市教委科研创新计划项目', 链接:'https://kjc.shnu.edu.cn/aa/4c/c16762a764492/page.htm', 级别:'省部级', 提交日期:'', 难度:'未知' },
+    { 序号:8, 名称:'上海市教育科学研究', 链接:'https://hjy.hpe.cn/hygz/ggl/691452.htm', 级别:'省部级', 提交日期:'6月份', 难度:'一般' },
+    { 序号:9, 名称:'上海市超级博后', 链接:'https://rsj.sh.gov.cn/trsrc_17739/20230803/t0035_1417472.html', 级别:'省部级', 提交日期:'9月份', 难度:'困难' },
+    { 序号:10, 名称:'博后-面上', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3、8月开，6、11月出', 难度:'较难' },
+    { 序号:11, 名称:'博后-BC 档', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3月', 难度:'较难' },
+    { 序号:12, 名称:'博后-特别资助', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3月开始，6月出', 难度:'未知' },
+    { 序号:13, 名称:'博后-博新', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级以上', 提交日期:'与BC档一起', 难度:'大佬特供' },
+  ];
+
+  // ===== 工具函数 =====
+  const parseISO = (s)=>{ if(!s) return null; const m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/); if(!m) return null; return new Date(+m[1], +m[2]-1, +m[3]); }
+  const daysBetween = (a,b)=> Math.ceil((b - a)/(1000*60*60*24));
+  const clamp = (n,min,max)=> Math.max(min, Math.min(max, n));
+
+  // 收藏（本地）
+  const STAR_KEY = 'qjzt-stars';
+  const getStars = ()=> JSON.parse(localStorage.getItem(STAR_KEY) || '[]');
+  const setStars = (ids)=> localStorage.setItem(STAR_KEY, JSON.stringify(ids));
+  const toggleStar = (id)=> { const s=new Set(getStars()); s.has(id)?s.delete(id):s.add(id); setStars([...s]); };
+
+  // 生成 .ics 文件
+  function makeICS({title, start, end, url, note}){
+    const dt = (d)=> d.replace(/-/g,'') + 'T090000';
+    const uid = Date.now()+Math.random().toString(16).slice(2);
+    const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//QJZT//Calendar Export//CN\nBEGIN:VEVENT\nUID:${uid}\nDTSTAMP:${dt(start)}Z\nDTSTART:${dt(start)}\nDTEND:${dt(end)}\nSUMMARY:${title}\nDESCRIPTION:${note||''} ${url||''}\nURL:${url||''}\nEND:VEVENT\nEND:VCALENDAR`;
+    const blob=new Blob([ics],{type:'text/calendar'}); return URL.createObjectURL(blob);
+  }
+
+  // ===== 渲染 正在申报 =====
+  const timelineEl = document.getElementById('timeline');
+  const searchOngoing = document.getElementById('searchOngoing');
+  const levelOngoing = document.getElementById('levelOngoing');
+  const sortOngoing = document.getElementById('sortOngoing');
+  const chips = [...document.querySelectorAll('.chip')];
+  let showOnlyStar = false;
+
+  function statusOf(end){
+    const now=new Date(); const d=parseISO(end);
+    if(!d) return 'open';
+    const left=daysBetween(now,d);
+    if(left<0) return 'past';
+    if(left<=10) return 'soon';
+    return 'open';
+  }
+
+  function renderTimeline(){
+    const stars=new Set(getStars());
+    let list = ongoingRaw.map(x=> ({...x, _status:statusOf(x.end)}));
+
+    // 过滤
+    const q=searchOngoing.value.trim().toLowerCase();
+    const lvl=levelOngoing.value;
+    const activeChips = chips.filter(c=>c.getAttribute('aria-pressed')==='true').map(c=>c.dataset.chip);
+
+    list = list.filter(r=>{
+      const okQ = q ? (r.name.toLowerCase().includes(q) || (r.note||'').toLowerCase().includes(q) || r.level.includes(q)) : true;
+      const okL = lvl ? r.level===lvl : true;
+      const okC = activeChips.length? activeChips.includes(r._status) : true;
+      const okS = showOnlyStar ? stars.has(r.id) : true;
+      return okQ && okL && okC && okS;
+    });
+
+    // 排序
+    const comparator = {
+      end:(a,b)=>{ const da=parseISO(a.end), db=parseISO(b.end); return (da-db)||0; },
+      start:(a,b)=>{ const da=parseISO(a.start), db=parseISO(b.start); return (da-db)||0; },
+      name:(a,b)=> a.name.localeCompare(b.name,'zh-CN'),
+    }[sortOngoing.value||'end'];
+    list.sort(comparator);
+
+    // 渲染
+    timelineEl.innerHTML='';
+    const now=new Date();
+    list.forEach(r=>{
+      const dEnd=parseISO(r.end); const left=dEnd?daysBetween(now,dEnd):null;
+      const total=dEnd && parseISO(r.start) ? Math.max(1, daysBetween(parseISO(r.start), dEnd)) : 0;
+      const passed=dEnd && parseISO(r.start) ? clamp(total - Math.max(0, left), 0, total) : 0;
+      const pct = total? Math.round(passed/total*100) : 0;
+
+      const item=document.createElement('div'); item.className='item';
+      const title=document.createElement('div'); title.className='title';
+      title.innerHTML = `
+        <a href="${r.url}" target="_blank" rel="noopener">${r.name}</a>
+        <span class="badge ${r.level.includes('国家')?'level-nat':'level-prov'}">${r.level}</span>
+        <button class="btn" data-star="${r.id}">${stars.has(r.id)?'⭐ 已收藏':'☆ 收藏'}</button>
+        <a class="btn" href="#" data-ics='${r.id}'>📆 导出日历</a>
+      `;
+      const meta=document.createElement('div'); meta.className='meta';
+      const dueClass = left==null? 'due-open' : left<0? 'due-past' : left<=10? 'due-soon' : 'due-open';
+      meta.innerHTML = `
+        <span class="badge">开始：${r.start||'-'}</span>
+        <span class="badge">截止：<span class="due ${dueClass}">${r.end||'-'}${left==null?'': left>=0?`（剩 ${left} 天）`:'（已截止）'}</span></span>
+        ${r.note?`<span class="badge">备注：${r.note}</span>`:''}
+        <span class="badge">进度：${pct}%</span>
+      `;
+
+      const bar=document.createElement('div'); bar.className='bar';
+      const span=document.createElement('span'); span.style.width=pct+'%'; bar.appendChild(span);
+
+      item.appendChild(title); item.appendChild(meta); item.appendChild(bar);
+      timelineEl.appendChild(item);
+    });
+
+    // 绑定收藏与 ICS
+    timelineEl.querySelectorAll('[data-star]').forEach(btn=>{
+      btn.onclick = ()=>{ toggleStar(+btn.dataset.star); renderTimeline(); };
+    });
+    timelineEl.querySelectorAll('[data-ics]').forEach(a=>{
+      a.onclick=(e)=>{
+        e.preventDefault();
+        const r = ongoingRaw.find(x=> x.id===+a.dataset.ics);
+        const href = makeICS({title:r.name, start:r.start, end:r.end, url:r.url, note:r.note});
+        a.href = href; a.download = `${r.name}.ics`; a.click();
+        setTimeout(()=> URL.revokeObjectURL(href), 3000);
+      };
+    });
+  }
+
+  // UI 交互
+  chips.forEach(c=> c.addEventListener('click',()=>{
+    const on = c.getAttribute('aria-pressed')==='true';
+    c.setAttribute('aria-pressed', on? 'false':'true');
+    renderTimeline();
+  }));
+  [searchOngoing, levelOngoing, sortOngoing].forEach(el=> el.addEventListener('input', renderTimeline));
+  document.getElementById('btnShowOnlyStar').addEventListener('click',()=>{ showOnlyStar=!showOnlyStar; renderTimeline(); });
+  document.getElementById('btnReset').addEventListener('click',()=>{
+    searchOngoing.value=''; levelOngoing.value=''; sortOngoing.value='end'; chips.forEach(c=>c.setAttribute('aria-pressed','false')); showOnlyStar=false; renderTimeline();
+    document.getElementById('searchCatalog').value=''; document.getElementById('levelCatalog').value=''; document.getElementById('sortCatalog').value='序号'; renderCatalog();
+  });
+
+  // CSV 导出（基于当前过滤后的时间线）
+  document.getElementById('btnExportCSV').addEventListener('click',()=>{
+    // 临时渲染一次以获得过滤后的 DOM
+    renderTimeline();
+    const rows = [...document.querySelectorAll('#timeline .item')].map(div=>{
+      const name = div.querySelector('.title a')?.textContent.trim()||'';
+      const level = div.querySelector('.badge')?.textContent.trim()||'';
+      const meta = [...div.querySelectorAll('.meta .badge')].map(x=>x.textContent.replace(/\s+/g,' ').trim());
+      return [name, level, ...meta];
+    });
+    const header=['名称','级别','开始','截止','备注/状态','进度'];
+    const csv = [header, ...rows].map(r=> r.map(v=>`"${v.replace(/"/g,'""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download='正在申报_筛选导出.csv'; a.click();
+    setTimeout(()=> URL.revokeObjectURL(url), 2000);
+  });
+
+  // ===== 渲染 已整理 =====
+  const catalogTable = document.getElementById('catalogTable');
+  const searchCatalog = document.getElementById('searchCatalog');
+  const levelCatalog = document.getElementById('levelCatalog');
+  const sortCatalog = document.getElementById('sortCatalog');
+
+  function renderCatalog(){
+    const q = searchCatalog.value.trim().toLowerCase();
+    const lvl = levelCatalog.value;
+    let list = catalogRaw.filter(r=>{
+      const okQ = q ? (r.名称.toLowerCase().includes(q) || r.级别.includes(q) || (r.难度||'').includes(q)) : true;
+      const okL = lvl ? r.级别===lvl : true;
+      return okQ && okL;
+    });
+    const key = sortCatalog.value;
+    list.sort((a,b)=>{
+      if(key==='序号') return (+a.序号)-(+b.序号);
+      return String(a[key]||'').localeCompare(String(b[key]||''),'zh-CN');
+    });
+
+    const tbody = catalogTable.querySelector('tbody');
+    tbody.innerHTML='';
+    list.forEach(r=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML = `
+        <td>${r.序号}</td>
+        <td><a href="${r.链接}" target="_blank" rel="noopener">${r.名称}</a></td>
+        <td>${r.级别}</td>
+        <td>${r.提交日期||''}</td>
+        <td>${r.难度||''}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  [searchCatalog, levelCatalog, sortCatalog].forEach(el=> el.addEventListener('input', renderCatalog));
+
+  // 初始渲染
+  renderTimeline();
+  renderCatalog();
+</script>
+</body>
+</html>
