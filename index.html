@@ -74,8 +74,8 @@
   .item{border:1px solid var(--border);background:var(--bg-soft);border-radius:16px;padding:14px;display:grid;gap:8px}
   .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .badge{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:999px;border:1px solid var(--border);background:var(--chip);font-size:12px;color:var(--muted)}
-  .level-nat{background:linear-gradient(90deg, #1e293b,#0f172a)}
-  .level-prov{background:linear-gradient(90deg, #0f172a,#111827)}
+  .level-nat{background:linear-gradient(90deg, #65d877, #c4e276)}
+  .level-prov{background:linear-gradient(90deg, #a7fff9, #a4bef6)}
   .title{display:flex;gap:10px;align-items:flex-start}
   .title a{font-weight:700;font-size:16px}
   .note{color:var(--muted)}
@@ -140,7 +140,7 @@
 <main>
   <!-- 正在申报：时间线 + 筛选 -->
   <section id="ongoing">
-    <h3>🎉 正在申报（自动计算剩余天数）</h3>
+    <h3>🎉 正在申报</h3>
     <div class="toolbar">
       <input class="search" id="searchOngoing" type="search" placeholder="搜索：名称 / 备注 / 级别…" />
       <select id="levelOngoing">
@@ -217,7 +217,11 @@
     </div>
   </section>
 
-  <footer>© <span id="year"></span> 青椒之梯 · Made with ❤️ for 青年教师</footer>
+  <footer>© <span id="year"></span> 青椒之梯 · Made with ❤️ for 青年教师<br>
+    GitHub 地址: <a>https://github.com/xingyezn/Qingjiao</a>
+    <br>
+  如有侵权，请联系：hxxu@shisu.edu.cn
+  </footer>
 </main>
 
 <!-- 浮动按钮 -->
@@ -259,7 +263,8 @@
     { 序号:10, 名称:'博后-面上', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3、8月开，6、11月出', 难度:'较难' },
     { 序号:11, 名称:'博后-BC 档', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3月', 难度:'较难' },
     { 序号:12, 名称:'博后-特别资助', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'3月开始，6月出', 难度:'未知' },
-    { 序号:13, 名称:'博后-博新', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级以上', 提交日期:'与BC档一起', 难度:'大佬特供' },
+    { 序号:13, 名称:'博后-博新', 链接:'https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh', 级别:'省部级', 提交日期:'与BC档一起', 难度:'大佬特供' },
+     { 序号:14, 名称:'上海市软科学', 链接:'https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/20250317/c1e6bf1406f14aa98e0363787c53d9d9.html', 级别:'省部级', 提交日期:'3-4月提交', 难度:'较难' },
   ];
 
   // ===== 工具函数 =====
@@ -445,3 +450,4 @@
 </script>
 </body>
 </html>
+
