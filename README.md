@@ -40,7 +40,9 @@
 | 11   |     [博后-BC 档](https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh)                                                | 省部级       | 3月                    | 较难     |
 | 12   |      [博后-特别资助](https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh)                                            | 省部级       | 3月开始，6月出         | 未知     |
 | 13   |       [博后-博新](https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh)                                               | 省部级以上   | 与BC档一起             | 大佬特供 |
+| 14   |       [上海市软科学]([https://jj.chinapostdoctor.org.cn/auth/login.html?usertype=bsh](https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/20250317/c1e6bf1406f14aa98e0363787c53d9d9.html))                                               | 省部级   |     3-4月提交，       | 较难 |
 
+> 上述难度为个人估计，不太准确。
 
 ## 🔍 使用建议
 
