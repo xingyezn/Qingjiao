@@ -38,8 +38,11 @@ function renderCoverage() {
   const html = regions.map((region) => {
     const inRegion = projects.filter((project) => project.region === region);
     const lines = Object.entries(categories).map(([key, label]) => {
-      const count = inRegion.filter((project) => project.category === key).length;
-      return `<li>${label}<b>${count ? `${count} 项` : "待补充"}</b></li>`;
+      const entries = inRegion.filter((project) => project.category === key);
+      const projectCount = entries.filter((project) => project.recordType !== "official-source-index").length;
+      const sourceCount = entries.filter((project) => project.recordType === "official-source-index").length;
+      const coverageText = [projectCount ? `${projectCount} 项` : "", sourceCount ? `${sourceCount} 个官方入口` : ""].filter(Boolean).join(" + ") || "待补充";
+      return `<li>${label}<b>${coverageText}</b></li>`;
     }).join("");
     return `<article class="coverage-card"><h3>${esc(region)}</h3><ul>${lines}</ul></article>`;
   }).join("");
