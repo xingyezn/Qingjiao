@@ -30,7 +30,7 @@ RELEVANT_TERMS = (
 )
 YEAR_PATTERN = re.compile(r"(?:2025|2026|2027|2028)")
 INTENT_TERMS = ("申报", "申请", "指南", "项目", "课题", "资助", "博士后")
-SOURCE_WORKERS = 12
+SOURCE_WORKERS = 4
 
 
 class AnchorParser(HTMLParser):
