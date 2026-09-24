@@ -1448,7 +1448,7 @@
       "id": "qinghai-postdoctoral",
       "region": "青海省",
       "host": "青海省人社部门（博士后工作）",
-      "url": "https://rst.qh.gov.cn/",
+      "url": "https://rst.qinghai.gov.cn/",
       "keywords": [
         "博士后",
         "博新计划",
@@ -1736,7 +1736,7 @@
       "id": "university-tianjin",
       "region": "天津市",
       "host": "天津大学科研院",
-      "url": "https://kj.tju.edu.cn/",
+      "url": "https://kj.tju.edu.cn/xwtz/tztg.htm",
       "sourceType": "university",
       "officialDomain": "tju.edu.cn",
       "keywords": [
@@ -1976,7 +1976,7 @@
       "id": "university-tibet",
       "region": "西藏自治区",
       "host": "西藏大学科研处",
-      "url": "https://kyc.utibet.edu.cn/xwdt/tzgg.htm",
+      "url": "https://kyc.utibet.edu.cn/",
       "sourceType": "university",
       "officialDomain": "utibet.edu.cn",
       "keywords": [
@@ -2061,6 +2061,1991 @@
         "课题",
         "博士后"
       ]
+    },
+    {
+      "id": "hust-science",
+      "region": "湖北省",
+      "host": "华中科技大学科学技术发展院",
+      "url": "https://kfy.hust.edu.cn/tzgg/qtzx.htm",
+      "sourceType": "university",
+      "officialDomain": "hust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划",
+        "青年科技人才"
+      ]
+    },
+    {
+      "id": "hust-social",
+      "region": "湖北省",
+      "host": "华中科技大学人文社会科学处",
+      "url": "https://cm.hust.edu.cn/jsyyj/kytz.htm",
+      "sourceType": "university",
+      "officialDomain": "hust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ccnu-research",
+      "region": "湖北省",
+      "host": "华中师范大学科学技术发展研究院",
+      "url": "https://kjc.ccnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ccnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zuel-research",
+      "region": "湖北省",
+      "host": "中南财经政法大学科学研究部",
+      "url": "https://science.zuel.edu.cn/583/list2.htm",
+      "sourceType": "university",
+      "officialDomain": "zuel.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "scuec-research",
+      "region": "湖北省",
+      "host": "中南民族大学科学研究发展院",
+      "url": "https://www.scuec.edu.cn/kfy/",
+      "sourceType": "university",
+      "officialDomain": "scuec.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "imnu-social",
+      "region": "内蒙古自治区",
+      "host": "内蒙古师范大学社会科学处",
+      "url": "https://skc.imnu.edu.cn/tzgg/3.htm",
+      "sourceType": "university",
+      "officialDomain": "imnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "imnu-science",
+      "region": "内蒙古自治区",
+      "host": "内蒙古师范大学科技处",
+      "url": "https://kjc.imnu.edu.cn/tzgg/96.htm",
+      "sourceType": "university",
+      "officialDomain": "imnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "imust-science",
+      "region": "内蒙古自治区",
+      "host": "内蒙古科技大学科技处",
+      "url": "https://stao.imust.edu.cn/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "imust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "imu-regional-projects",
+      "region": "内蒙古自治区",
+      "host": "内蒙古大学自治区级科研项目栏目",
+      "url": "https://st.imu.edu.cn/kyxm1/zzqj/3.htm",
+      "sourceType": "university",
+      "officialDomain": "imu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jxufe-research",
+      "region": "江西省",
+      "host": "江西财经大学科研处",
+      "url": "https://kyc.jxufe.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "jxufe.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jju-research",
+      "region": "江西省",
+      "host": "九江学院科研处",
+      "url": "https://kyc.jju.edu.cn/list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1004",
+      "sourceType": "university",
+      "officialDomain": "jju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jcu-research",
+      "region": "江西省",
+      "host": "景德镇陶瓷大学科技处",
+      "url": "https://kjc.jcu.edu.cn/zxytz/tzgg/26.htm",
+      "sourceType": "university",
+      "officialDomain": "jcu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "henu-science",
+      "region": "河南省",
+      "host": "河南大学科学技术研究院",
+      "url": "https://kyc.henu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "henu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "henu-social",
+      "region": "河南省",
+      "host": "河南大学人文社会科学研究院",
+      "url": "https://skc.henu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "henu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "haust-science",
+      "region": "河南省",
+      "host": "河南科技大学科技处",
+      "url": "https://kyc.haust.edu.cn/index/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "haust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zzu-science",
+      "region": "河南省",
+      "host": "郑州大学科学技术处",
+      "url": "https://www7.zzu.edu.cn/kjc/index/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "zzu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zut-social",
+      "region": "河南省",
+      "host": "中原工学院社会科学处",
+      "url": "https://shkxc.zut.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "zut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zua-social",
+      "region": "河南省",
+      "host": "郑州航空工业管理学院社科处",
+      "url": "https://shekechu.zua.edu.cn/index/tzgongh/48.htm",
+      "sourceType": "university",
+      "officialDomain": "zua.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ynau-science",
+      "region": "云南省",
+      "host": "云南农业大学科学技术处",
+      "url": "https://kjc.ynau.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ynau.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ynnu-research",
+      "region": "云南省",
+      "host": "云南师范大学科研处",
+      "url": "https://ky.ynnu.edu.cn/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "ynnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "xzmu-social-science",
+      "region": "西藏自治区",
+      "host": "西藏民族大学科研处（校址陕西，涉藏项目转载源）",
+      "url": "https://www1.xzmu.edu.cn/kyc/",
+      "sourceType": "university",
+      "officialDomain": "xzmu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "university-hebei-yanshan",
+      "region": "河北省",
+      "host": "燕山大学科学技术研究院",
+      "url": "https://kyy.ysu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ysu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "university-hebei-normal-science",
+      "region": "河北省",
+      "host": "河北师范大学科技处",
+      "url": "https://kjc.hebtu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hebtu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "university-hebei-normal-social",
+      "region": "河北省",
+      "host": "河北师范大学社会科学处",
+      "url": "https://shkxc.hebtu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hebtu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "university-hebei-economics",
+      "region": "河北省",
+      "host": "河北经贸大学科研处",
+      "url": "https://kyc.hueb.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hueb.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "shanxi-university-social",
+      "region": "山西省",
+      "host": "山西大学社会科学处",
+      "url": "https://skc.sxu.edu.cn/tzgg/index.htm",
+      "sourceType": "university",
+      "officialDomain": "sxu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tyut-research",
+      "region": "山西省",
+      "host": "太原理工大学科学技术研究院",
+      "url": "https://kj.tyut.edu.cn/xmsb.htm",
+      "sourceType": "university",
+      "officialDomain": "tyut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tyust-research",
+      "region": "山西省",
+      "host": "太原科技大学科学技术研究院",
+      "url": "https://kjc.tyust.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "tyust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tiangong-projects",
+      "region": "天津市",
+      "host": "天津工业大学科研项目通知",
+      "url": "https://www.tiangong.edu.cn/xmtz/listm2.htm",
+      "sourceType": "university",
+      "officialDomain": "tiangong.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tcu-research",
+      "region": "天津市",
+      "host": "天津城建大学科技处",
+      "url": "https://kyc.tcu.edu.cn/index/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "tcu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tjcu-social",
+      "region": "天津市",
+      "host": "天津城建大学科研处",
+      "url": "https://kjc.tjcu.edu.cn/info/1012/1235.htm",
+      "sourceType": "university",
+      "officialDomain": "tjcu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "tjarts-projects",
+      "region": "天津市",
+      "host": "天津音乐学院科研与研究生处",
+      "url": "https://kyc.tjarts.edu.cn/xmsb.htm",
+      "sourceType": "university",
+      "officialDomain": "tjarts.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "neu-research",
+      "region": "辽宁省",
+      "host": "东北大学科学技术研究院",
+      "url": "https://kyy.neu.edu.cn/2947/list4.htm",
+      "sourceType": "university",
+      "officialDomain": "neu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "syau-science",
+      "region": "辽宁省",
+      "host": "沈阳农业大学科技处",
+      "url": "https://kjc.syau.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "syau.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "lnu-science",
+      "region": "辽宁省",
+      "host": "辽宁大学科学技术研究处",
+      "url": "https://kjc.lnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "lnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jlu-social",
+      "region": "吉林省",
+      "host": "吉林大学社会科学研究院",
+      "url": "https://hssra.jlu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "jlu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jisu-research",
+      "region": "吉林省",
+      "host": "吉林外国语大学科研处",
+      "url": "https://kyc.jisu.edu.cn/tzgg/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "jisu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "jlau-research",
+      "region": "吉林省",
+      "host": "吉林农业大学科技管理处",
+      "url": "https://kyc.jlau.edu.cn/index/index/notice.html",
+      "sourceType": "university",
+      "officialDomain": "jlau.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ybu-science",
+      "region": "吉林省",
+      "host": "延边大学科学技术处",
+      "url": "https://kjc.ybu.edu.cn/list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1027",
+      "sourceType": "university",
+      "officialDomain": "ybu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "hit-research",
+      "region": "黑龙江省",
+      "host": "哈尔滨工业大学科学与工业技术研究院",
+      "url": "https://keyan.hit.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hit.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "usth-projects",
+      "region": "黑龙江省",
+      "host": "黑龙江科技大学科技处项目通知",
+      "url": "https://kjc.usth.edu.cn/index/tzgg/tzgg_xm.htm",
+      "sourceType": "university",
+      "officialDomain": "usth.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "nefu-research",
+      "region": "黑龙江省",
+      "host": "东北林业大学科学技术研究院",
+      "url": "https://kyy.nefu.edu.cn/tzgg/81.htm",
+      "sourceType": "university",
+      "officialDomain": "nefu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "neau-postdoc",
+      "region": "黑龙江省",
+      "host": "东北农业大学人事处博士后通知",
+      "url": "https://rsc.neau.edu.cn/bsh/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "neau.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "hlju-science",
+      "region": "黑龙江省",
+      "host": "黑龙江大学科学技术处",
+      "url": "https://kxjs.hlju.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hlju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "qmu-research",
+      "region": "黑龙江省",
+      "host": "齐齐哈尔医学院科研处",
+      "url": "https://www.qmu.edu.cn/2026/0923/c6215a210685/page.htm",
+      "sourceType": "university",
+      "officialDomain": "qmu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "hfut-research",
+      "region": "安徽省",
+      "host": "合肥工业大学科研通知",
+      "url": "https://news.hfut.edu.cn/tzgg2/1225.htm",
+      "sourceType": "university",
+      "officialDomain": "hfut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "hfut-social",
+      "region": "安徽省",
+      "host": "合肥工业大学社会科学处",
+      "url": "https://skc.hfut.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hfut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ahnu-research",
+      "region": "安徽省",
+      "host": "安徽师范大学科研部",
+      "url": "https://kyc.ahnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ahnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ahjzu-research",
+      "region": "安徽省",
+      "host": "安徽建筑大学科研通知",
+      "url": "https://www.ahjzu.edu.cn/kjc/5564/list3.htm",
+      "sourceType": "university",
+      "officialDomain": "ahjzu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ahpu-research",
+      "region": "安徽省",
+      "host": "安徽工程大学科技处",
+      "url": "https://kjc.ahpu.edu.cn/_t41/731/list.psp",
+      "sourceType": "university",
+      "officialDomain": "ahpu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ahstu-research",
+      "region": "安徽省",
+      "host": "安徽科技工程大学科研处",
+      "url": "https://www.ahstu.edu.cn/info/1111/",
+      "sourceType": "university",
+      "officialDomain": "ahstu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ahtcm-science",
+      "region": "安徽省",
+      "host": "安徽中医药大学科技处",
+      "url": "https://kjc.ahtcm.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ahtcm.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "nju-social",
+      "region": "江苏省",
+      "host": "南京大学社会科学处项目申报",
+      "url": "https://skch.nju.edu.cn/63459/list2.htm",
+      "sourceType": "university",
+      "officialDomain": "nju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ujs-science",
+      "region": "江苏省",
+      "host": "江苏大学科技处项目申报",
+      "url": "https://kjc.ujs.edu.cn/tzgg/qyb1.htm",
+      "sourceType": "university",
+      "officialDomain": "ujs.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ujs-social",
+      "region": "江苏省",
+      "host": "江苏大学社会科学处",
+      "url": "https://skc.ujs.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ujs.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "njtech-postdoc",
+      "region": "江苏省",
+      "host": "南京工业大学博士后通知",
+      "url": "https://rsc.njtech.edu.cn/bsh/info/1007/1934.htm",
+      "sourceType": "university",
+      "officialDomain": "njtech.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "just-postdoc",
+      "region": "江苏省",
+      "host": "江苏科技大学博士后通知",
+      "url": "https://rsc.just.edu.cn/bsh/list.htm",
+      "sourceType": "university",
+      "officialDomain": "just.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "seu-postdoc",
+      "region": "江苏省",
+      "host": "东南大学博士后基金通知",
+      "url": "https://rcb.seu.edu.cn/postdoc/56724/list.htm",
+      "sourceType": "university",
+      "officialDomain": "seu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zju-science",
+      "region": "浙江省",
+      "host": "浙江大学科研院科研事务",
+      "url": "https://pi.zju.edu.cn/67976/list.htm",
+      "sourceType": "university",
+      "officialDomain": "zju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zju-social-general",
+      "region": "浙江省",
+      "host": "浙江大学社会科学研究院项目申报",
+      "url": "https://rwsk.zju.edu.cn/ybsb/list.htm",
+      "sourceType": "university",
+      "officialDomain": "zju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "zjnu-social",
+      "region": "浙江省",
+      "host": "浙江师范大学人文社会科学处",
+      "url": "https://rwskc.zjnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "zjnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "upc-social",
+      "region": "山东省",
+      "host": "中国石油大学（华东）文科建设处申报通知",
+      "url": "https://wkc.upc.edu.cn/sbtz_18130/listm.psp",
+      "sourceType": "university",
+      "officialDomain": "upc.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "sdnu-social",
+      "region": "山东省",
+      "host": "山东师范大学社会科学处",
+      "url": "https://skc.sdnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sdnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "sdut-science",
+      "region": "山东省",
+      "host": "山东理工大学科学技术处",
+      "url": "https://research.sdut.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sdut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "sdust-social",
+      "region": "山东省",
+      "host": "山东科技大学人文社会科学处",
+      "url": "https://rwskc.sdust.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sdust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "sdu-qingdao-research",
+      "region": "山东省",
+      "host": "山东大学青岛校区科研管理办公室",
+      "url": "https://kyc.qd.sdu.edu.cn/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "sdu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "ouc-postdoc",
+      "region": "山东省",
+      "host": "中国海洋大学人事处博士后通知",
+      "url": "https://rsc.ouc.edu.cn/30724/list1.htm",
+      "sourceType": "university",
+      "officialDomain": "ouc.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "upc-postdoc",
+      "region": "山东省",
+      "host": "中国石油大学（华东）人事处博士后通知",
+      "url": "https://rsc.upc.edu.cn/p2348c2314/list1.htm",
+      "sourceType": "university",
+      "officialDomain": "upc.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后",
+        "人才计划"
+      ]
+    },
+    {
+      "id": "university-fujian-fzu-science",
+      "region": "福建省",
+      "host": "福州大学科技处",
+      "url": "https://kjc.fzu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "科研项目",
+        "自然科学",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福州大学",
+      "officialDomain": "fzu.edu.cn"
+    },
+    {
+      "id": "university-fujian-fzu-social",
+      "region": "福建省",
+      "host": "福州大学社会科学研究管理处",
+      "url": "https://skc.fzu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "项目指南"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福州大学",
+      "officialDomain": "fzu.edu.cn"
+    },
+    {
+      "id": "university-fujian-fjnu-social",
+      "region": "福建省",
+      "host": "福建师范大学社会科学处",
+      "url": "https://skc.fjnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "国家社科",
+        "福建社科",
+        "教育科学规划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福建师范大学",
+      "officialDomain": "fjnu.edu.cn"
+    },
+    {
+      "id": "university-fujian-fjnu-science",
+      "region": "福建省",
+      "host": "福建师范大学科技处",
+      "url": "https://kjc.fjnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "自然科学",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福建师范大学",
+      "officialDomain": "fjnu.edu.cn"
+    },
+    {
+      "id": "university-fujian-fafu-science",
+      "region": "福建省",
+      "host": "福建农林大学科研院",
+      "url": "https://kyy.fafu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技计划",
+        "自然科学",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福建农林大学",
+      "officialDomain": "fafu.edu.cn"
+    },
+    {
+      "id": "university-fujian-fafu-social",
+      "region": "福建省",
+      "host": "福建农林大学社会科学处",
+      "url": "https://net.fafu.edu.cn/shkxc/main.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "国家社科",
+        "福建社科",
+        "教育科研"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "福建农林大学",
+      "officialDomain": "fafu.edu.cn"
+    },
+    {
+      "id": "university-fujian-hqu-science",
+      "region": "福建省",
+      "host": "华侨大学科研处",
+      "url": "https://kyc.hqu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "科研项目",
+        "博士后"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "华侨大学",
+      "officialDomain": "hqu.edu.cn"
+    },
+    {
+      "id": "university-hunan-hnust-science",
+      "region": "湖南省",
+      "host": "湖南科技大学科学研究部自然科学公告",
+      "url": "https://science.hnust.edu.cn/tzgg/zknwtz/index.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "省自然科学基金",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "湖南科技大学",
+      "officialDomain": "hnust.edu.cn"
+    },
+    {
+      "id": "university-hunan-hnust-social",
+      "region": "湖南省",
+      "host": "湖南科技大学科学研究部社科外网公告",
+      "url": "https://science.hnust.edu.cn/tzgg/skwwtz/index.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社会科学",
+        "社科规划",
+        "人文社会科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "湖南科技大学",
+      "officialDomain": "hnust.edu.cn"
+    },
+    {
+      "id": "university-hunan-xtu-science",
+      "region": "湖南省",
+      "host": "湘潭大学科技处通知公告",
+      "url": "https://kjc.xtu.edu.cn/tzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "科研项目",
+        "自然科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "湘潭大学",
+      "officialDomain": "xtu.edu.cn"
+    },
+    {
+      "id": "university-hunan-hunau-social",
+      "region": "湖南省",
+      "host": "湖南农业大学社会科学处通知公示",
+      "url": "https://skc.hunau.edu.cn/tzgs/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "社科人才",
+        "教育科研"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "湖南农业大学",
+      "officialDomain": "hunau.edu.cn"
+    },
+    {
+      "id": "university-hunan-hunnu-social",
+      "region": "湖南省",
+      "host": "湖南师范大学社会科学处通知公告",
+      "url": "https://skc.hunnu.edu.cn/index/tzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "国家社科",
+        "社科规划",
+        "人文社会科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "湖南师范大学",
+      "officialDomain": "hunnu.edu.cn"
+    },
+    {
+      "id": "university-chongqing-cqu-science",
+      "region": "重庆市",
+      "host": "重庆大学科学技术发展研究院项目申报",
+      "url": "https://kjc.cqu.edu.cn/tzgg1/xmsb.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技项目",
+        "自然科学",
+        "重点研发"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "重庆大学",
+      "officialDomain": "cqu.edu.cn"
+    },
+    {
+      "id": "university-chongqing-cqu-social",
+      "region": "重庆市",
+      "host": "重庆大学社会科学研究处通知公告",
+      "url": "https://skc.cqu.edu.cn/index/tzgg/6.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "教育"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "重庆大学",
+      "officialDomain": "cqu.edu.cn"
+    },
+    {
+      "id": "university-chongqing-cqnu-science",
+      "region": "重庆市",
+      "host": "重庆师范大学科研处",
+      "url": "https://kyc.cqnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "社科",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "重庆师范大学",
+      "officialDomain": "cqnu.edu.cn"
+    },
+    {
+      "id": "university-chongqing-swu-social",
+      "region": "重庆市",
+      "host": "西南大学社会科学处通知公告",
+      "url": "https://hssd.swu.edu.cn/index/tzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "教育"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西南大学",
+      "officialDomain": "swu.edu.cn"
+    },
+    {
+      "id": "university-hainan-hainanu-social",
+      "region": "海南省",
+      "host": "海南大学人文社科处通知动态",
+      "url": "https://hss.hainanu.edu.cn/wkdt.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南大学",
+      "officialDomain": "hainanu.edu.cn"
+    },
+    {
+      "id": "university-hainan-hainanu-postdoc",
+      "region": "海南省",
+      "host": "海南大学人事处博士后项目申报",
+      "url": "https://hro.hainanu.edu.cn/rcw/bsh1/zzgl/xmsb.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "博士后基金",
+        "博新计划",
+        "博士后"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南大学",
+      "officialDomain": "hainanu.edu.cn"
+    },
+    {
+      "id": "university-hainan-hainnu-science",
+      "region": "海南省",
+      "host": "海南师范大学科学技术院项目申报",
+      "url": "https://kyc.hainnu.edu.cn/148/listm1.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技计划",
+        "科技特派员"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南师范大学",
+      "officialDomain": "hainnu.edu.cn"
+    },
+    {
+      "id": "university-hainan-hainnu-social",
+      "region": "海南省",
+      "host": "海南师范大学人文社会科学研究院",
+      "url": "https://rwsky.hainnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "教育科研"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南师范大学",
+      "officialDomain": "hainnu.edu.cn"
+    },
+    {
+      "id": "university-hainan-hntou-science",
+      "region": "海南省",
+      "host": "海南热带海洋学院科技处通知公告",
+      "url": "https://kjc.hntou.edu.cn/xwtz/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技项目",
+        "软科学",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南热带海洋学院",
+      "officialDomain": "hntou.edu.cn"
+    },
+    {
+      "id": "university-hainan-hntou-education",
+      "region": "海南省",
+      "host": "海南热带海洋学院教务处通知",
+      "url": "https://jwc.hntou.edu.cn/jwtz/",
+      "keywords": [
+        "申报",
+        "申请",
+        "教育教学改革",
+        "教改项目",
+        "教育科研"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "海南热带海洋学院",
+      "officialDomain": "hntou.edu.cn"
+    },
+    {
+      "id": "university-hainan-cau-sanya",
+      "region": "海南省",
+      "host": "中国农业大学三亚研究院通知目录",
+      "url": "https://sanya.cau.edu.cn/col/col47257/index.html",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目通知",
+        "海南省科技厅",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "中国农业大学三亚研究院",
+      "officialDomain": "cau.edu.cn"
+    },
+    {
+      "id": "university-guangxi-gxnu-science",
+      "region": "广西壮族自治区",
+      "host": "广西师范大学科学技术处",
+      "url": "https://www.research.gxnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技项目",
+        "项目指南"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "广西师范大学",
+      "officialDomain": "gxnu.edu.cn"
+    },
+    {
+      "id": "university-guangxi-gxnu-social",
+      "region": "广西壮族自治区",
+      "host": "广西师范大学社会科学研究处",
+      "url": "https://www.skc.gxnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社会科学",
+        "社科规划",
+        "人文社会科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "广西师范大学",
+      "officialDomain": "gxnu.edu.cn"
+    },
+    {
+      "id": "university-guangxi-gxmu-science",
+      "region": "广西壮族自治区",
+      "host": "广西医科大学科技处科研项目通知",
+      "url": "https://kjc.gxmu.edu.cn/tzgg_3111/kyxm/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技项目",
+        "医学",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "广西医科大学",
+      "officialDomain": "gxmu.edu.cn"
+    },
+    {
+      "id": "university-guangxi-guet-science",
+      "region": "广西壮族自治区",
+      "host": "桂林电子科技大学科研院通知公告",
+      "url": "https://www.guet.edu.cn/gdkyc/tzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技项目",
+        "自然科学",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "桂林电子科技大学",
+      "officialDomain": "guet.edu.cn"
+    },
+    {
+      "id": "university-guangxi-education-planning",
+      "region": "广西壮族自治区",
+      "host": "广西教育科学规划领导小组办公室",
+      "url": "https://jykxghb.gxeduyun.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "教育科学规划",
+        "教育科研",
+        "课题"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "广西教育科学规划办",
+      "officialDomain": "gxeduyun.edu.cn"
+    },
+    {
+      "id": "university-sichuan-swjtu-science",
+      "region": "四川省",
+      "host": "西南交通大学科研院",
+      "url": "https://sro.swjtu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科研项目",
+        "自然科学",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西南交通大学",
+      "officialDomain": "swjtu.edu.cn"
+    },
+    {
+      "id": "university-sichuan-swjtu-social",
+      "region": "四川省",
+      "host": "西南交通大学文科建设处通知公告",
+      "url": "https://wkjsc.swjtu.edu.cn/tzgg/57.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "人文社会科学",
+        "教育"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西南交通大学",
+      "officialDomain": "swjtu.edu.cn"
+    },
+    {
+      "id": "university-sichuan-swpu-social",
+      "region": "四川省",
+      "host": "西南石油大学人文社科处项目申报",
+      "url": "https://www.swpu.edu.cn/rwskc/tzgg/xmsb/26.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科规划",
+        "社会科学",
+        "人才"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西南石油大学",
+      "officialDomain": "swpu.edu.cn"
+    },
+    {
+      "id": "university-sichuan-sicnu-science",
+      "region": "四川省",
+      "host": "四川师范大学科学技术处",
+      "url": "https://kjc.sicnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "教育专项",
+        "科技项目"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "四川师范大学",
+      "officialDomain": "sicnu.edu.cn"
+    },
+    {
+      "id": "university-sichuan-scu-postdoc",
+      "region": "四川省",
+      "host": "四川大学人事处博士后基金项目",
+      "url": "https://rsc.scu.edu.cn/bshgz/jjxm.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "博士后基金",
+        "博新计划",
+        "博士后"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "四川大学",
+      "officialDomain": "scu.edu.cn"
+    },
+    {
+      "id": "university-sichuan-uestc-postdoc",
+      "region": "四川省",
+      "host": "电子科技大学博士后项目通知",
+      "url": "https://www.postdoctor.uestc.edu.cn/jzsq.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "博士后基金",
+        "博士后项目",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "电子科技大学",
+      "officialDomain": "uestc.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-nwu-science",
+      "region": "陕西省",
+      "host": "西北大学科技处通知公告",
+      "url": "https://www.nwu.edu.cn/tzgglist.jsp?urltype=tree.TreeTempUrl&wbtreeid=1094",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技计划",
+        "项目指南"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西北大学",
+      "officialDomain": "nwu.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-nwu-social",
+      "region": "陕西省",
+      "host": "西北大学社科科研管理通知",
+      "url": "https://www.nwu.edu.cn/tzgglist.jsp?urltype=tree.TreeTempUrl&wbtreeid=1095",
+      "keywords": [
+        "申报",
+        "申请",
+        "社会科学",
+        "社科规划",
+        "人文社会科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西北大学",
+      "officialDomain": "nwu.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-nwpu-science",
+      "region": "陕西省",
+      "host": "西北工业大学科研院",
+      "url": "https://kyy.nwpu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技计划",
+        "科研项目"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "西北工业大学",
+      "officialDomain": "nwpu.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-snnu-social",
+      "region": "陕西省",
+      "host": "陕西师范大学社会科学处",
+      "url": "https://skc.snnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科规划",
+        "社会科学",
+        "教育"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "陕西师范大学",
+      "officialDomain": "snnu.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-snnu-postdoc",
+      "region": "陕西省",
+      "host": "陕西师范大学博士后管理通知",
+      "url": "https://rsc.snnu.edu.cn/bshgl/bshtzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "博士后基金",
+        "博士后资助",
+        "博新"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "陕西师范大学",
+      "officialDomain": "snnu.edu.cn"
+    },
+    {
+      "id": "university-shaanxi-snsy-science",
+      "region": "陕西省",
+      "host": "陕西学前师范学院科研处通知公告",
+      "url": "https://kyc.snsy.edu.cn/tzgg.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "教育厅科研",
+        "项目",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "陕西学前师范学院",
+      "officialDomain": "snsy.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gzu-science",
+      "region": "贵州省",
+      "host": "贵州大学科技处通知列表",
+      "url": "https://st.gzu.edu.cn/tzgg/list.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "科研项目",
+        "科技计划",
+        "自然科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州大学",
+      "officialDomain": "gzu.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gzu-social",
+      "region": "贵州省",
+      "host": "贵州大学人文社科处",
+      "url": "https://hss.gzu.edu.cn/1317/list.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社会科学",
+        "人文社会科学",
+        "社科规划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州大学",
+      "officialDomain": "gzu.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gzy-social-science",
+      "region": "贵州省",
+      "host": "贵州中医药大学科研处",
+      "url": "https://keyan.gzy.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "自然科学",
+        "科研项目"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州中医药大学",
+      "officialDomain": "gzy.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gznc-science",
+      "region": "贵州省",
+      "host": "贵州师范学院科研处",
+      "url": "https://keyan.gznc.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "教育科研",
+        "科研项目"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州师范学院",
+      "officialDomain": "gznc.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gufe-science",
+      "region": "贵州省",
+      "host": "贵州财经大学科研处科研信息",
+      "url": "https://kyc.gufe.edu.cn/kyxx/kyzyxx.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "科研项目",
+        "社科",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州财经大学",
+      "officialDomain": "gufe.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gznu-science",
+      "region": "贵州省",
+      "host": "贵州师范大学科技处",
+      "url": "https://kyc.gznu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技项目",
+        "项目指南"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州师范大学",
+      "officialDomain": "gznu.edu.cn"
+    },
+    {
+      "id": "university-guizhou-gzcdc-postdoc",
+      "region": "贵州省",
+      "host": "贵州省疾病预防控制中心博士后招收公告",
+      "url": "https://www.gzscdc.org.cn/xxgk/dtxx/tzgg/",
+      "keywords": [
+        "博士后",
+        "招收",
+        "申请",
+        "人才"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "贵州省疾病预防控制中心",
+      "officialDomain": "gzscdc.org.cn"
+    },
+    {
+      "id": "university-qinghai-qhu-science",
+      "region": "青海省",
+      "host": "青海大学科研院",
+      "url": "https://rd.qhu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科研项目",
+        "省部级",
+        "科技计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "青海大学",
+      "officialDomain": "qhu.edu.cn"
+    },
+    {
+      "id": "university-qinghai-qhnu-talent-postdoc",
+      "region": "青海省",
+      "host": "青海师范大学人事处博士后及人才公告",
+      "url": "https://rsc.qhnu.edu.cn/bsh.htm",
+      "keywords": [
+        "博士后",
+        "招收",
+        "人才计划",
+        "项目申报",
+        "申请"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "青海师范大学",
+      "officialDomain": "qhnu.edu.cn"
+    },
+    {
+      "id": "university-ningxia-nxmu-science",
+      "region": "宁夏回族自治区",
+      "host": "宁夏医科大学科学技术处",
+      "url": "https://www.nxmu.edu.cn/kxjsc/",
+      "keywords": [
+        "申报",
+        "申请",
+        "科技项目",
+        "软科学",
+        "人才计划",
+        "博士后"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "宁夏医科大学",
+      "officialDomain": "nxmu.edu.cn"
+    },
+    {
+      "id": "ningxia-social-science-planning-office",
+      "region": "宁夏回族自治区",
+      "host": "宁夏哲学社会科学规划办公室通知公告",
+      "url": "https://skghb.nxnews.net/tzgg/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科规划",
+        "哲学社会科学",
+        "教育学"
+      ],
+      "sourceType": "government",
+      "officialDomain": "nxnews.net"
+    },
+    {
+      "id": "university-xinjiang-xju-social",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆大学社会科学处",
+      "url": "https://shkxc.xju.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "社会科学",
+        "社科基金",
+        "人文社会科学"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "新疆大学",
+      "officialDomain": "xju.edu.cn"
+    },
+    {
+      "id": "university-xinjiang-xjnu-science",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆师范大学科学技术处",
+      "url": "https://kjc.xjnu.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "自然科学",
+        "科技项目",
+        "项目指南"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "新疆师范大学",
+      "officialDomain": "xjnu.edu.cn"
+    },
+    {
+      "id": "university-xinjiang-xjnu-social",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆师范大学社会科学处通知公告",
+      "url": "https://skc.xjnu.edu.cn/sylm/tzgg/2.htm",
+      "keywords": [
+        "申报",
+        "申请",
+        "社科",
+        "社会科学",
+        "教育"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "新疆师范大学",
+      "officialDomain": "xjnu.edu.cn"
+    },
+    {
+      "id": "university-xinjiang-xjau-science",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆农业大学科研管理处",
+      "url": "https://kyc.xjau.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "农业科技",
+        "科技项目",
+        "人才计划"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "新疆农业大学",
+      "officialDomain": "xjau.edu.cn"
+    },
+    {
+      "id": "university-xinjiang-education-science",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆教育科学研究院项目申报平台",
+      "url": "https://jky.xj.edu.cn/",
+      "keywords": [
+        "申报",
+        "申请",
+        "教育科学规划",
+        "教育科研",
+        "课题"
+      ],
+      "sourceType": "university",
+      "sourceInstitution": "新疆教育科学研究院",
+      "officialDomain": "xj.edu.cn"
     }
   ]
 }

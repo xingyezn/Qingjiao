@@ -27,11 +27,13 @@ YEAR_PATTERN = re.compile(r"20\d{2}")
 INTENT_TERMS = ("申报", "申请", "指南", "招标")
 EXCLUDED_TITLE_TERMS = (
     "征求意见", "指南建议", "建议征集", "拟立项", "立项名单", "评审结果", "推荐结果",
-    "项目公示", "申报培训", "结项", "中期检查", "鉴定专家", "关于公布", "名单",
+    "项目公示", "公示", "拟推荐", "拟通过", "申报结果", "立项结果", "申报培训", "结项", "中期检查", "鉴定专家", "关于公布", "名单",
     "学术交流", "服务基层", "科研流动站", "科研工作站", "创新实践基地", "专栏", "成果文库",
-    "汇总", "解读会", "动员会", "说明会", "宣讲会", "培训会", "讲座",
+    "汇总", "解读会", "论证会", "指导会", "辅导会", "工作部署会", "工作总结暨", "动员和经验分享会",
+    "动员会", "说明会", "宣讲会", "培训会", "讲座",
 )
 POSTDOCTORAL_FUNDING_TERMS = ("基金", "资助", "创新人才", "博新计划", "科研项目", "人才项目")
+TALENT_TERMS = ("人才计划", "人才项目", "人才支持计划", "青年科技人才", "青年人才", "英才计划", "英才兴蒙", "人才培养项目", "领军人才")
 SOURCE_WORKERS = 4
 MAX_UNIVERSITY_NOTICES_PER_SOURCE = 8
 MAX_PAGE_BYTES = 5_000_000
@@ -43,6 +45,7 @@ CATEGORY_TERMS = {
     "social-science": ("社会科学", "哲学社会科学", "社科规划", "社科基金", "人文社会科学"),
     "education": ("教育科学", "教育科研", "教育研究", "教育规划"),
     "postdoctoral": ("博士后", "博新计划", "博士后基金"),
+    "talent": TALENT_TERMS,
 }
 NATIONAL_TERMS = (
     "国家自然科学基金", "国家自然基金", "国家社会科学基金", "国家社科基金",
@@ -121,6 +124,14 @@ def clean_title(title: str) -> str:
 
 def canonical_title(title: str) -> str:
     title = clean_title(title).replace("国家社科基金", "国家社会科学基金").replace("年度", "年")
+    if "国家社会科学基金中华学术外译项目" in title:
+        return "2026年国家社会科学基金中华学术外译项目"
+    if "国家社会科学基金高校思想政治理论课研究专项" in title:
+        return "2026年国家社会科学基金高校思想政治理论课研究专项"
+    if "职业早期青年科技人才培养" in title:
+        years = YEAR_PATTERN.findall(title)
+        batch = re.search(r"第?([一二三四五六七八九十\d]+)批", title)
+        return f"{years[0] if years else ''}{batch.group(1) if batch else ''}职业早期青年科技人才培养"
     title = re.sub(r"^.*?关于(?:发布|转发|组织申报|做好|开展|申报)", "", title)
     title = re.sub(r"^关于", "", title)
     title = re.sub(r"(?:申报|申请)(?:指南)?(?:工作)?(?:的)?(?:通知|公告|通告)?$", "", title)
@@ -200,10 +211,12 @@ def valid_notice_title(title: str, category: str | None) -> bool:
 
 def category_for_notice(source: dict, title: str) -> str | None:
     if source.get("sourceType") == "university":
-        for category in ("postdoctoral", "education", "social-science", "natural-science"):
+        for category in ("postdoctoral", "talent", "education", "social-science", "natural-science"):
             if category_matches(title, category):
                 return category
         return None
+    if not any(term in title for term in ("博士后", "博新计划")) and category_matches(title, "talent"):
+        return "talent"
     return category_for_source(source)
 
 
@@ -270,10 +283,11 @@ def review_notice(source: dict, listing_url: str, title: str, notice_url: str) -
     today = local_today()
     start_at = extract_date(body, r"(?:申报|申请|受理)(?:时间|期限|日期)?(?:自|从|为|：|:)?")
     deadline = extract_date(body, r"(?:截止|截至|申报至|受理至|提交至)(?:时间|日期)?(?:为|：|:)?")
-    # A notice is listed as currently open only when its official text states
-    # an application window and provides an unexpired deadline.
-    explicitly_open = any(term in body for term in ("正在申报", "申报中", "开放申报", "开始申报"))
-    currently_open = source.get("sourceType") != "university" and explicitly_open and deadline is not None and deadline >= today and (start_at is None or start_at <= today)
+    # Derive timing from the notice's explicit application window. The title
+    # or body need not contain a specific phrase such as “正在申报”.
+    status = "announced"
+    if source.get("sourceType") != "university" and start_at and deadline:
+        status = "upcoming" if today < start_at else "closed" if today > deadline else "open"
     year = next((value for value in years if value in calendar_years()), max(years))
     return {
         "category": category,
@@ -281,8 +295,13 @@ def review_notice(source: dict, listing_url: str, title: str, notice_url: str) -
         "year": year,
         "startAt": to_iso(start_at) if source.get("sourceType") != "university" else None,
         "deadline": to_iso(deadline) if source.get("sourceType") != "university" else None,
-        "status": "open" if currently_open else "announced",
-        "statusText": "申报中（自动核验官方通知）" if currently_open else "官方通知已发布（自动收录）",
+        "status": status,
+        "statusText": {
+            "open": "申报中（依据官方通知时间）",
+            "upcoming": "即将开放（依据官方通知时间）",
+            "closed": "已截止（依据官方通知时间）",
+            "announced": "官方通知已发布（自动收录）",
+        }[status],
     }
 
 
@@ -332,7 +351,7 @@ def scan_source(source: dict) -> tuple[int, list[dict], tuple[str, str] | None]:
                 "checkedAt": local_today().isoformat(),
                 "automaticReview": {
                     "decision": "approved",
-                    "rulesVersion": 2,
+                    "rulesVersion": 5,
                     "reviewedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 },
             })
@@ -366,6 +385,23 @@ def sanitize_auto_projects(projects: list[dict]) -> tuple[list[dict], bool, int]
         if any(term in title for term in NATIONAL_TERMS) and item.get("region") != "国家级":
             item["region"] = "国家级"
             item["level"] = "国家级"
+            changed = True
+        if item.get("sourceType") != "university" and item.get("startAt") and item.get("deadline"):
+            start_at = date.fromisoformat(item["startAt"][:10])
+            deadline = date.fromisoformat(item["deadline"][:10])
+            today = local_today()
+            timed_status = "upcoming" if today < start_at else "closed" if today > deadline else "open"
+            if item.get("status") != timed_status:
+                item["status"] = timed_status
+                item["statusText"] = {
+                    "open": "申报中（依据官方通知时间）",
+                    "upcoming": "即将开放（依据官方通知时间）",
+                    "closed": "已截止（依据官方通知时间）",
+                }[timed_status]
+                changed = True
+        review = item.get("automaticReview")
+        if review and review.get("rulesVersion") != 5:
+            review["rulesVersion"] = 5
             changed = True
         title_key = (item.get("region"), item.get("category"), canonical_title(title))
         if title_key in seen_titles:

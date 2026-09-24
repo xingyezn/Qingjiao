@@ -2,7 +2,8 @@ const categories = {
   "natural-science": "自然科学",
   "social-science": "社会科学",
   education: "教育",
-  postdoctoral: "博士后"
+  postdoctoral: "博士后",
+  talent: "人才计划"
 };
 
 const statusLabels = {
@@ -17,9 +18,10 @@ let regions = [];
 let projects = [];
 let projectRecords = [];
 let preferredRegion = "";
+let selectedYears = new Set();
 const pageSize = 12;
 let visibleProjectCount = pageSize;
-let visibleActiveCount = 6;
+let visibleActiveCount = 12;
 let sourceDirectory = [];
 let visibleSourceCount = 18;
 
@@ -72,6 +74,16 @@ function populateOptions(availableRegions) {
   Object.entries(categories).forEach(([value, label]) => categorySelect.add(new Option(label, value)));
 }
 
+function populateYearOptions() {
+  const years = [...new Set(projectRecords.map((project) => Number(project.year)).filter((year) => Number.isInteger(year) && year > 2000))].sort((a, b) => b - a);
+  document.querySelector("#yearOptions").innerHTML = years.map((year) => `<label class="year-option"><input type="checkbox" value="${year}"><span>${year}年</span></label>`).join("");
+  document.querySelectorAll("#yearOptions input").forEach((input) => input.addEventListener("change", () => {
+    selectedYears = new Set([...document.querySelectorAll("#yearOptions input:checked")].map((option) => Number(option.value)));
+    visibleProjectCount = pageSize;
+    renderProjects();
+  }));
+}
+
 function provinceFromIp(data) {
   if (!data || data.success === false || data.error || data.country_code !== "CN") return "";
   const code = String(data.region_code || "").toUpperCase().replace(/^CN-/, "");
@@ -96,7 +108,7 @@ function setPreferredRegion(region, method) {
     localStorage.setItem("qjzt-region-v1", JSON.stringify({ region: preferredRegion, method, expires: method === "auto" ? Date.now() + 86400000 : null }));
   } catch { /* Storage can be unavailable in private browsing. */ }
   visibleProjectCount = pageSize;
-  visibleActiveCount = 6;
+  visibleActiveCount = 12;
   renderActiveProjects();
   renderProjects();
 }
@@ -158,11 +170,13 @@ function renderCoverage() {
 }
 
 function projectCard(project) {
-  const deadline = project.deadline ? formatDate(project.deadline) : "以通知为准";
-  const start = project.startAt ? formatDate(project.startAt) : "—";
-  const statusClass = `pill-${project.status}`;
+  const deadline = project.deadline ? `${formatDate(project.deadline)}${project.deadlineTime ? ` ${project.deadlineTime}` : ""}` : "以通知为准";
+  const start = project.startAt ? `${formatDate(project.startAt)}${project.startTime ? ` ${project.startTime}` : ""}` : "—";
+  const currentStatus = effectiveStatus(project);
+  const statusClass = `pill-${currentStatus}`;
+  const currentStatusText = currentStatus !== project.status ? statusLabels[currentStatus] : (project.statusText || statusLabels[currentStatus] || "状态待核验");
   return `<article class="card">
-    <div class="card-top"><span class="pill">${esc(project.region)}</span><span class="pill">${esc(project.level)}</span><span class="pill">${esc(categories[project.category] || project.category)}</span>${project.sourceType === "university" ? '<span class="pill">高校通知</span>' : ""}<span class="pill ${statusClass}">${esc(project.statusText || statusLabels[project.status] || "状态待核验")}</span></div>
+    <div class="card-top"><span class="pill">${esc(project.region)}</span><span class="pill">${esc(project.level)}</span><span class="pill">${esc(categories[project.category] || project.category)}</span>${project.sourceType === "university" ? '<span class="pill">高校通知</span>' : ""}<span class="pill ${statusClass}">${esc(currentStatusText)}</span></div>
     <h3>${esc(project.name)}${project.year ? ` <span class="pill">${esc(project.year)}</span>` : ""}</h3>
     <p>${esc(project.summary)}</p>
     <dl><dt>主管单位</dt><dd>${esc(project.host)}</dd>${project.sourceType === "university" && project.sourceInstitution ? `<dt>通知高校</dt><dd>${esc(project.sourceInstitution)}</dd>` : ""}<dt>发布日期</dt><dd>${esc(formatDate(project.publishedAt))}</dd><dt>开放时间</dt><dd>${esc(start)}</dd><dt>截止时间</dt><dd>${esc(deadline)}</dd></dl>
@@ -178,13 +192,14 @@ function renderProjects() {
   const filtered = projectRecords.filter((project) => {
     const haystack = [project.name, project.host, project.region, project.summary, project.year].join(" ").toLocaleLowerCase("zh-CN");
     const active = isCurrentlyOpen(project);
+    const currentStatus = effectiveStatus(project);
     // Show current calls in the dedicated section above. The main list contains
     // other records by default, while an explicit status filter can include them.
-    const statusMatches = !status || (status === "open" ? active : project.status === status);
-    return (status ? statusMatches : !active) && (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category);
+    const statusMatches = !status || (status === "open" ? active : currentStatus === status);
+    return (status ? statusMatches : !active) && (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category) && (!selectedYears.size || selectedYears.has(Number(project.year)));
   }).sort((a, b) => {
     const rank = { open: 0, upcoming: 1, announced: 2, reference: 3, closed: 4 };
-    return regionRank(a) - regionRank(b) || (rank[a.status] ?? 9) - (rank[b.status] ?? 9) || (b.year || 0) - (a.year || 0) || a.name.localeCompare(b.name, "zh-CN");
+    return regionRank(a) - regionRank(b) || (rank[effectiveStatus(a)] ?? 9) - (rank[effectiveStatus(b)] ?? 9) || (b.year || 0) - (a.year || 0) || a.name.localeCompare(b.name, "zh-CN");
   });
   document.querySelector("#resultsMeta").textContent = `符合条件 ${filtered.length} / ${projectRecords.length} 项`;
   const pageItems = filtered.slice(0, visibleProjectCount);
@@ -206,10 +221,38 @@ function renderProjects() {
   });
 }
 
+function shanghaiToday() {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai" }).format(new Date());
+}
+
+function shanghaiTime() {
+  return new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Shanghai", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(new Date());
+}
+
+function effectiveStatus(project) {
+  const today = shanghaiToday();
+  const time = shanghaiTime();
+  const currentYear = Number(today.slice(0, 4));
+  const start = project.startAt?.slice(0, 10);
+  const deadline = project.deadline?.slice(0, 10);
+  if (start && deadline) {
+    if (today < start) return "upcoming";
+    if (today > deadline) return "closed";
+    if (today === start && project.startTime && time < project.startTime) return "upcoming";
+    if (today === deadline && project.deadlineTime && time > project.deadlineTime) return "closed";
+    return "open";
+  }
+  if (project.status === "open") {
+    if (project.year && Number(project.year) < currentYear) return "closed";
+    if (start && today < start) return "upcoming";
+    if (deadline && today > deadline) return "closed";
+    if (deadline && today === deadline && project.deadlineTime && time > project.deadlineTime) return "closed";
+  }
+  return project.status;
+}
+
 function isCurrentlyOpen(project) {
-  if (project.status !== "open") return false;
-  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai" }).format(new Date());
-  return (!project.startAt || project.startAt.slice(0, 10) <= today) && (!project.deadline || project.deadline.slice(0, 10) >= today);
+  return effectiveStatus(project) === "open";
 }
 
 function renderActiveProjects() {
@@ -222,13 +265,16 @@ function renderActiveProjects() {
   document.querySelector("#activePagination").innerHTML = shown < active.length
     ? `<button class="button" id="loadMoreActive">加载更多申报项目（${shown}/${active.length}）</button>` : "";
   document.querySelector("#loadMoreActive")?.addEventListener("click", () => {
-    visibleActiveCount += 6;
+    visibleActiveCount += 12;
     renderActiveProjects();
   });
 }
 
 function renderSources(sources) {
   sourceDirectory = [...sources].sort((a, b) => Number(b.sourceType === "university") - Number(a.sourceType === "university") || a.region.localeCompare(b.region, "zh-CN"));
+  const universitySources = sourceDirectory.filter((source) => source.sourceType === "university");
+  const universityRegions = new Set(universitySources.map((source) => source.region)).size;
+  document.querySelector("#sourceSummary").textContent = `共 ${sourceDirectory.length} 个来源，其中 ${universitySources.length} 个高校科研入口覆盖 ${universityRegions} 个省级地区；点“加载更多来源”浏览完整目录。`;
   renderSourcePage();
 }
 
@@ -250,6 +296,7 @@ async function init() {
   const sourceData = await sourceResponse.json();
   projects = projectData.projects;
   projectRecords = projects.filter((project) => project.recordType !== "official-source-index");
+  populateYearOptions();
   document.querySelector("#totalCount").textContent = projectRecords.length;
   document.querySelector("#lastVerified").textContent = projectData.lastVerified || "—";
   populateOptions([...new Set([...projects.map((project) => project.region), ...sourceData.sources.map((source) => source.region)])]);
