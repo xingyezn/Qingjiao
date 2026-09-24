@@ -122,8 +122,10 @@ def clean_title(title: str) -> str:
 def canonical_title(title: str) -> str:
     title = clean_title(title).replace("国家社科基金", "国家社会科学基金").replace("年度", "年")
     title = re.sub(r"^.*?关于(?:发布|转发|组织申报|做好|开展|申报)", "", title)
+    title = re.sub(r"^关于", "", title)
     title = re.sub(r"(?:申报|申请)(?:指南)?(?:工作)?(?:的)?(?:通知|公告|通告)?$", "", title)
     title = re.sub(r"(?:的)?通知$", "", title)
+    title = re.sub(r"项目$", "", title)
     return re.sub(r"[^\w\u4e00-\u9fff]", "", title)
 
 
