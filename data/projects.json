@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-24",
+  "lastVerified": "2026-09-25",
   "notice": "申报时间、资格条件和附件以项目主办单位最新通知为准；“已截止/参考”条目用于查看项目体系，不代表当前仍可申报。",
   "projects": [
     {
@@ -18,7 +18,8 @@
       "deadline": null,
       "sourceUrl": "https://www.nsfc.gov.cn/p1/3381/2824/zntg.html",
       "applicationUrl": "https://www.nsfc.gov.cn/p1/4201/sqzz.html",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "nsfc-special-2026",
@@ -35,7 +36,8 @@
       "deadline": null,
       "sourceUrl": "https://www.nsfc.gov.cn/p1/3381/2824/zntg.html",
       "applicationUrl": "https://www.nsfc.gov.cn/p1/4201/sqzz.html",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "nssfc-2026",
@@ -52,7 +54,8 @@
       "deadline": null,
       "sourceUrl": "https://www.nopss.gov.cn/n1/2026/0506/c431027-40714613.html",
       "applicationUrl": "https://www.nopss.gov.cn/GB/219469/index.html",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "national-education-science-2026",
@@ -69,7 +72,8 @@
       "deadline": null,
       "sourceUrl": "https://onsgep.moe.edu.cn/post/view/1848",
       "applicationUrl": "https://onsgep.moe.edu.cn/tzgg",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "moe-humanities-2026",
@@ -86,7 +90,8 @@
       "deadline": "2026-07-12",
       "sourceUrl": "https://www.moe.gov.cn/s78/A13/tongzhi/202606/t20260612_1440551.html",
       "applicationUrl": "https://www.moe.gov.cn/s78/A13/tongzhi/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "postdoc-fund-2026",
@@ -103,7 +108,8 @@
       "deadline": null,
       "sourceUrl": "https://www.chinapostdoctor.org.cn/prod-api/profile/info/fujian/20260104/824e4553-1677-42f4-b39a-54c965adb668.pdf",
       "applicationUrl": "https://www.chinapostdoctor.org.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "postdoc-innovation-2026",
@@ -120,7 +126,8 @@
       "deadline": null,
       "sourceUrl": "https://www.chinapostdoctor.org.cn/prod-api/profile/info/fujian/20260203/c3982a22-6513-40f5-94ee-0727d912c0fe.pdf",
       "applicationUrl": "https://www.chinapostdoctor.org.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "shanghai-nsfc-key-2026",
@@ -138,7 +145,8 @@
       "deadline": "2026-10-22T16:30:00+08:00",
       "sourceUrl": "https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/20260922/3739b06000ee4d5bae0a6cf4967dd5d5.html",
       "applicationUrl": "https://svc20.stcsm.sh.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "shanghai-social-2026-special",
@@ -155,7 +163,8 @@
       "deadline": null,
       "sourceUrl": "https://www.sh-popss.gov.cn/news.asp?ColumID=1&Pname=1",
       "applicationUrl": "https://www.sh-popss.gov.cn/news.asp?ColumID=1&Pname=1",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "shanghai-education-2026",
@@ -172,7 +181,8 @@
       "deadline": null,
       "sourceUrl": "https://www.sta.edu.cn/ea/14/c1572a125460/page.htm",
       "applicationUrl": "https://edu.sh.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "shanghai-education-2027",
@@ -182,14 +192,18 @@
       "category": "education",
       "level": "省部级",
       "host": "上海市教育委员会、上海市教育科学规划领导小组办公室",
-      "summary": "已见高校科研管理部门转发2027年度申报通知；按官方年度流程，具体单位截止时间请查看通知附件。",
+      "summary": "2027年度上海市教育科学研究项目申报通知已由高校科研处发布；各单位校内推荐截止时间不同，以所在单位通知为准。",
       "status": "announced",
       "statusText": "新一年度通知已发布",
-      "publishedAt": "2026-06-03",
+      "publishedAt": "2026-06-02",
       "deadline": null,
-      "sourceUrl": "https://kyc.usst.edu.cn/855/list3.htm",
-      "applicationUrl": "https://edu.sh.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "sourceUrl": "https://www.sues.edu.cn/89/79/c26791a297337/page.htm",
+      "applicationUrl": null,
+      "checkedAt": "2026-09-25",
+      "upstreamSourceUrl": "https://kyc.usst.edu.cn/855/list3.htm",
+      "sourceType": "university",
+      "sourceInstitution": "上海工程技术大学科研处",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "shanghai-postdoc-super",
@@ -206,7 +220,8 @@
       "deadline": null,
       "sourceUrl": "https://rsj.sh.gov.cn/cmsres/e2/e2e5504b8fcb4bc0a9b8aa0eaa0d36a3/500ac7fd3bd7cae1b419f9ad5300eff3.pdf",
       "applicationUrl": "https://rsj.sh.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "beijing-nsfc-2026-3",
@@ -223,7 +238,8 @@
       "deadline": "2026-09-09T16:00:00+08:00",
       "sourceUrl": "https://kw.beijing.gov.cn/zwgk/zwgksbrl/202608/t20260811_4818822.html",
       "applicationUrl": "https://nsf.kw.beijing.gov.cn/bjnsfweb/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "beijing-social-2026",
@@ -240,7 +256,8 @@
       "deadline": "2026-07-10T17:00:00+08:00",
       "sourceUrl": "https://www.bjsk.org.cn/detail-1397-1482-16207.html",
       "applicationUrl": "https://keti.bjsk.org.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "beijing-education-science-2026",
@@ -257,7 +274,8 @@
       "deadline": "2026-04-13",
       "sourceUrl": "https://jw.beijing.gov.cn/xxgk/2024zcwj/2024qtwj/202602/t20260205_4493672.html",
       "applicationUrl": "https://gh.bjedu.cn/ghsite/zxtzgg/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "beijing-postdoc-funding-2026",
@@ -274,7 +292,8 @@
       "deadline": "2026-03-31",
       "sourceUrl": "https://rsj.beijing.gov.cn/xxgk/2024qt/202602/t20260209_4503788.html",
       "applicationUrl": "https://zhengce.beijing.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "guangdong-nsfc-2026",
@@ -291,7 +310,8 @@
       "deadline": "2025-07-10T17:00:00+08:00",
       "sourceUrl": "https://gdstc.gd.gov.cn/zwgk_n/tzgg/content/post_4718804.html",
       "applicationUrl": "https://pro.gdstc.gd.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "guangdong-social-2027",
@@ -301,14 +321,18 @@
       "category": "social-science",
       "level": "省部级",
       "host": "广东省哲学社会科学规划领导小组办公室",
-      "summary": "一般、青年、岭南文化、后期资助、大湾区及粤东西北研究等类别；2027年度系统申报截止时间为2026年9月14日12:00。",
+      "summary": "设一般、青年、岭南文化、后期资助、大湾区及粤东西北等类别；省级申报系统于2026年9月17日12:00关闭，各单位校内截止可能更早。",
       "status": "closed",
       "statusText": "已截止",
       "publishedAt": "2026-08-07",
-      "deadline": "2026-09-14T12:00:00+08:00",
-      "sourceUrl": "https://www.gdpplgopss.org.cn/tzgg/content/post_1334572.html",
+      "deadline": "2026-09-17T12:00:00+08:00",
+      "sourceUrl": "https://kyc.dgpt.edu.cn/info/1003/1663.htm",
       "applicationUrl": "https://www.gdppssp.com.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-25",
+      "upstreamSourceUrl": "https://www.gdpplgopss.org.cn/tzgg/content/post_1334572.html",
+      "sourceType": "university",
+      "sourceInstitution": "东莞职业技术学院科研处",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "guangdong-education-projects-2026",
@@ -325,7 +349,8 @@
       "deadline": null,
       "sourceUrl": "https://kyy.scau.edu.cn/2026/0603/c11669a436314/page.htm",
       "applicationUrl": "https://gdjyky.gds.edu.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "guangdong-education-science-2025",
@@ -342,7 +367,8 @@
       "deadline": null,
       "sourceUrl": "https://www.gdust.edu.cn/jwc/jiaowu/20250521/7895.html",
       "applicationUrl": "https://gdjyky.gdedu.gov.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "guangdong-bay-area-postdoc-2026",
@@ -359,7 +385,8 @@
       "deadline": null,
       "sourceUrl": "https://www.gdzz.gov.cn/rcgz/gzdt/content/post_24736.html",
       "applicationUrl": "https://www.chinapostdoctor.org.cn/",
-      "checkedAt": "2026-09-24"
+      "checkedAt": "2026-09-24",
+      "sourceCheckedAt": "2026-09-25"
     },
     {
       "id": "catalog-tianjin-natural-science",

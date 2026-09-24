@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "每周扫描的官方主管部门、项目办公室和高校科研管理部门公告目录。搜索结果只作为待核验线索。",
+  "description": "每周扫描的政府部门、项目办公室、社科联及高校科研管理部门官方公告目录。高校通知作为国家级、省级项目的补充来源。",
   "sources": [
     {
       "id": "nsfc",
@@ -1550,6 +1550,186 @@
         "博新计划",
         "博士后资助",
         "博士后项目"
+      ]
+    },
+    {
+      "id": "tsinghua-research",
+      "region": "北京市",
+      "host": "清华大学科研院",
+      "url": "https://www.rd.tsinghua.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "tsinghua.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "sjtu-research",
+      "region": "上海市",
+      "host": "上海交通大学科学技术发展研究院",
+      "url": "https://keyan.sjtu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sjtu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "fudan-research",
+      "region": "上海市",
+      "host": "复旦大学科学技术研究院",
+      "url": "https://ist.fudan.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "fudan.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "sysu-research",
+      "region": "广东省",
+      "host": "中山大学科学研究院",
+      "url": "https://research.sysu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sysu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "nju-research",
+      "region": "江苏省",
+      "host": "南京大学科学技术研究院",
+      "url": "https://scit.nju.edu.cn/mainm.htm",
+      "sourceType": "university",
+      "officialDomain": "nju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "xmu-science",
+      "region": "福建省",
+      "host": "厦门大学科技处",
+      "url": "https://std.xmu.edu.cn/index.htm",
+      "sourceType": "university",
+      "officialDomain": "xmu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "xmu-social",
+      "region": "福建省",
+      "host": "厦门大学社会科学研究处",
+      "url": "https://skc.xmu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "xmu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "zju-social",
+      "region": "浙江省",
+      "host": "浙江大学社会科学研究院",
+      "url": "https://rwsk.zju.edu.cn/zxtz/list7.htm",
+      "sourceType": "university",
+      "officialDomain": "zju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "scu-science",
+      "region": "四川省",
+      "host": "四川大学科学技术发展研究院",
+      "url": "https://kyy.scu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "scu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "scu-social",
+      "region": "四川省",
+      "host": "四川大学社会科学研究处",
+      "url": "https://ssd.scu.edu.cn/kyxm/xmsb/15.htm",
+      "sourceType": "university",
+      "officialDomain": "scu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "jlu-research",
+      "region": "吉林省",
+      "host": "吉林大学科研院",
+      "url": "https://kjc.jlu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "jlu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "sdu-research",
+      "region": "山东省",
+      "host": "山东大学科学技术研究院",
+      "url": "https://www.rd.sdu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "sdu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
       ]
     }
   ]
