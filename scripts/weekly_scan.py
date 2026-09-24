@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -29,6 +30,7 @@ RELEVANT_TERMS = (
 )
 YEAR_PATTERN = re.compile(r"(?:2025|2026|2027|2028)")
 INTENT_TERMS = ("申报", "申请", "指南", "项目", "课题", "资助", "博士后")
+SOURCE_WORKERS = 12
 
 
 class AnchorParser(HTMLParser):
@@ -70,7 +72,7 @@ def allowed_domain(url: str, source_url: str) -> bool:
 
 def fetch_page(url: str) -> bytes:
     request = Request(url, headers={"User-Agent": "QingjiaoWeeklyNoticeScan/1.0 (+https://github.com/xingyezn/Qingjiao)"})
-    with urlopen(request, timeout=25) as response:
+    with urlopen(request, timeout=15) as response:
         content_type = response.headers.get_content_charset() or "utf-8"
         raw = response.read(5_000_000)
         return raw.decode(content_type, errors="replace").encode("utf-8")
@@ -80,6 +82,41 @@ def read_json(path: Path, default):
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def scan_source(source: dict) -> tuple[int, list[dict], tuple[str, str] | None]:
+    listing_url = source["url"]
+    try:
+        content = fetch_page(listing_url)
+        parser = AnchorParser()
+        parser.feed(content.decode("utf-8", errors="replace"))
+        candidates = []
+        for href, title in parser.items:
+            title = html.unescape(title)
+            source_terms = tuple(source.get("keywords", [])) or RELEVANT_TERMS
+            if len(title) < 8 or not any(term in title for term in source_terms):
+                continue
+            if not any(term in title for term in INTENT_TERMS) or not YEAR_PATTERN.search(title):
+                continue
+            target = normalized_url(urljoin(listing_url, href))
+            if urlparse(target).scheme != "https" or not allowed_domain(target, listing_url):
+                continue
+            if target == normalized_url(listing_url):
+                continue
+            candidates.append({
+                "region": source.get("region", "待分类"),
+                "sourceHost": source.get("host", ""),
+                "sourceId": source.get("id", ""),
+                "listingUrl": listing_url,
+                "title": title[:300],
+                "noticeUrl": target,
+                "discoveredAt": datetime.now(timezone.utc).date().isoformat(),
+                "reviewStatus": "待人工核验",
+                "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+            })
+        return 1, candidates, None
+    except (HTTPError, URLError, TimeoutError, OSError, ValueError) as error:
+        return 0, [], (source.get("host", source.get("id", listing_url)), str(error))
 
 
 def main() -> int:
@@ -97,41 +134,20 @@ def main() -> int:
     errors: list[tuple[str, str]] = []
     checked = 0
 
-    for source in source_data.get("sources", []):
-        listing_url = source["url"]
-        try:
-            content = fetch_page(listing_url)
-            parser = AnchorParser()
-            parser.feed(content.decode("utf-8", errors="replace"))
-            checked += 1
-            for href, title in parser.items:
-                title = html.unescape(title)
-                source_terms = tuple(source.get("keywords", [])) or RELEVANT_TERMS
-                if len(title) < 8 or not any(term in title for term in source_terms):
-                    continue
-                if not any(term in title for term in INTENT_TERMS) or not YEAR_PATTERN.search(title):
-                    continue
-                target = normalized_url(urljoin(listing_url, href))
-                if urlparse(target).scheme != "https" or not allowed_domain(target, listing_url):
-                    continue
-                if target == normalized_url(listing_url) or target in known_urls:
+    sources = source_data.get("sources", [])
+    with ThreadPoolExecutor(max_workers=min(SOURCE_WORKERS, max(1, len(sources)))) as executor:
+        for success_count, candidates, error in executor.map(scan_source, sources):
+            checked += success_count
+            if error:
+                errors.append(error)
+            for candidate in candidates:
+                target = normalized_url(candidate["noticeUrl"])
+                if target in known_urls:
                     continue
                 digest = hashlib.sha256(target.encode("utf-8")).hexdigest()[:16]
                 known_urls.add(target)
-                new_candidates.append({
-                    "id": digest,
-                    "region": source.get("region", "待分类"),
-                    "sourceHost": source.get("host", ""),
-                    "sourceId": source.get("id", ""),
-                    "listingUrl": listing_url,
-                    "title": title[:300],
-                    "noticeUrl": target,
-                    "discoveredAt": datetime.now(timezone.utc).date().isoformat(),
-                    "reviewStatus": "待人工核验",
-                    "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
-                })
-        except (HTTPError, URLError, TimeoutError, OSError, ValueError) as error:
-            errors.append((source.get("host", source.get("id", listing_url)), str(error)))
+                candidate["id"] = digest
+                new_candidates.append(candidate)
 
     if checked == 0:
         print("No official source page could be fetched; failing the scan.", file=sys.stderr)
