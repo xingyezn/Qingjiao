@@ -2,22 +2,1555 @@
   "schemaVersion": 1,
   "description": "每周扫描的官方主管部门、项目办公室和高校科研管理部门公告目录。搜索结果只作为待核验线索。",
   "sources": [
-    {"id":"nsfc","region":"国家级","host":"国家自然科学基金委员会","url":"https://www.nsfc.gov.cn/p1/3381/2824/zntg.html","keywords":["基金","项目指南","申报","申请指南","资助"]},
-    {"id":"nssfc","region":"国家级","host":"全国哲学社会科学工作办公室","url":"https://www.nopss.gov.cn/GB/219469/index.html","keywords":["国家社会科学基金","申报公告","项目申报","专项申报"]},
-    {"id":"education-national","region":"国家级","host":"全国教育科学规划领导小组办公室","url":"https://onsgep.moe.edu.cn/tzgg","keywords":["教育科学规划","项目申报","专项申报","申报公告"]},
-    {"id":"moe","region":"国家级","host":"教育部社会科学司","url":"https://www.moe.gov.cn/s78/A13/tongzhi/","keywords":["人文社会科学","项目申报","申报工作的通知","教育科学"]},
-    {"id":"postdoc-national","region":"国家级","host":"中国博士后科学基金会","url":"https://www.chinapostdoctor.org.cn/","keywords":["博士后科学基金","面上资助","特别资助","博新计划","申报指南"]},
-    {"id":"shanghai-science","region":"上海市","host":"上海市科学技术委员会","url":"https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/","keywords":["自然科学基金","基础研究计划","项目申报指南","申报通知"]},
-    {"id":"shanghai-social","region":"上海市","host":"上海市哲学社会科学规划办公室","url":"https://www.sh-popss.gov.cn/news.asp?ColumID=1&Pname=1","keywords":["课题申报","项目申报","专项课题","指南"]},
-    {"id":"shanghai-education","region":"上海市","host":"上海市教育委员会、高校科研管理部门","url":"https://kyc.usst.edu.cn/855/list3.htm","keywords":["教育科学研究项目","教育科学规划","教育科研项目","项目申报"]},
-    {"id":"shanghai-postdoc","region":"上海市","host":"上海市人力资源和社会保障局","url":"https://rsj.sh.gov.cn/","keywords":["超级博士后","博士后激励计划","博士后资助","博士后项目"]},
-    {"id":"beijing-science","region":"北京市","host":"北京市科学技术委员会、中关村管委会","url":"https://kw.beijing.gov.cn/zwgk/zwgksbrl/","keywords":["自然科学基金","项目申请","项目申报","申请通知"]},
-    {"id":"beijing-social","region":"北京市","host":"北京社科网、北京市社科联","url":"https://www.bjsk.org.cn/","keywords":["社科基金","项目申报","项目申报公告","课题申报"]},
-    {"id":"beijing-education","region":"北京市","host":"北京市教育委员会、北京市教育科学规划网","url":"https://gh.bjedu.cn/ghsite/zxtzgg/","keywords":["教育科学规划","课题申报","项目申报","年度课题"]},
-    {"id":"beijing-postdoc","region":"北京市","host":"北京市人力资源和社会保障局","url":"https://rsj.beijing.gov.cn/xxgk/2024qt/","keywords":["博士后工作经费","博士后资助","博士后科研活动","申报通知"]},
-    {"id":"guangdong-science","region":"广东省","host":"广东省科学技术厅","url":"https://gdstc.gd.gov.cn/zwgk_n/tzgg/","keywords":["自然科学基金","基础研究基金","项目申报","申报指南"]},
-    {"id":"guangdong-social","region":"广东省","host":"广东省哲学社会科学规划领导小组办公室","url":"https://www.gdpplgopss.org.cn/tzgg/","keywords":["哲学社会科学规划","项目申报","课题申报","专项申报"]},
-    {"id":"guangdong-education","region":"广东省","host":"广东省教育厅、高校科研管理部门","url":"https://kyy.scau.edu.cn/","keywords":["高等学校科研平台和项目","教育科学规划","教育科研项目","青年创新人才"]},
-    {"id":"guangdong-postdoc","region":"广东省","host":"广东省人力资源和社会保障厅","url":"https://hrss.gd.gov.cn/","keywords":["博士后","湾区项目","香江学者","博士后资助"]}
+    {
+      "id": "nsfc",
+      "region": "国家级",
+      "host": "国家自然科学基金委员会",
+      "url": "https://www.nsfc.gov.cn/p1/3381/2824/zntg.html",
+      "keywords": [
+        "基金",
+        "项目指南",
+        "申报",
+        "申请指南",
+        "资助"
+      ]
+    },
+    {
+      "id": "nssfc",
+      "region": "国家级",
+      "host": "全国哲学社会科学工作办公室",
+      "url": "https://www.nopss.gov.cn/GB/219469/index.html",
+      "keywords": [
+        "国家社会科学基金",
+        "申报公告",
+        "项目申报",
+        "专项申报"
+      ]
+    },
+    {
+      "id": "education-national",
+      "region": "国家级",
+      "host": "全国教育科学规划领导小组办公室",
+      "url": "https://onsgep.moe.edu.cn/tzgg",
+      "keywords": [
+        "教育科学规划",
+        "项目申报",
+        "专项申报",
+        "申报公告"
+      ]
+    },
+    {
+      "id": "moe",
+      "region": "国家级",
+      "host": "教育部社会科学司",
+      "url": "https://www.moe.gov.cn/s78/A13/tongzhi/",
+      "keywords": [
+        "人文社会科学",
+        "项目申报",
+        "申报工作的通知",
+        "教育科学"
+      ]
+    },
+    {
+      "id": "postdoc-national",
+      "region": "国家级",
+      "host": "中国博士后科学基金会",
+      "url": "https://www.chinapostdoctor.org.cn/",
+      "keywords": [
+        "博士后科学基金",
+        "面上资助",
+        "特别资助",
+        "博新计划",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "shanghai-science",
+      "region": "上海市",
+      "host": "上海市科学技术委员会",
+      "url": "https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究计划",
+        "项目申报指南",
+        "申报通知"
+      ]
+    },
+    {
+      "id": "shanghai-social",
+      "region": "上海市",
+      "host": "上海市哲学社会科学规划办公室",
+      "url": "https://www.sh-popss.gov.cn/news.asp?ColumID=1&Pname=1",
+      "keywords": [
+        "课题申报",
+        "项目申报",
+        "专项课题",
+        "指南"
+      ]
+    },
+    {
+      "id": "shanghai-education",
+      "region": "上海市",
+      "host": "上海市教育委员会、高校科研管理部门",
+      "url": "https://kyc.usst.edu.cn/855/list3.htm",
+      "keywords": [
+        "教育科学研究项目",
+        "教育科学规划",
+        "教育科研项目",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shanghai-postdoc",
+      "region": "上海市",
+      "host": "上海市人力资源和社会保障局",
+      "url": "https://rsj.sh.gov.cn/",
+      "keywords": [
+        "超级博士后",
+        "博士后激励计划",
+        "博士后资助",
+        "博士后项目"
+      ]
+    },
+    {
+      "id": "beijing-science",
+      "region": "北京市",
+      "host": "北京市科学技术委员会、中关村管委会",
+      "url": "https://kw.beijing.gov.cn/zwgk/zwgksbrl/",
+      "keywords": [
+        "自然科学基金",
+        "项目申请",
+        "项目申报",
+        "申请通知"
+      ]
+    },
+    {
+      "id": "beijing-social",
+      "region": "北京市",
+      "host": "北京社科网、北京市社科联",
+      "url": "https://www.bjsk.org.cn/",
+      "keywords": [
+        "社科基金",
+        "项目申报",
+        "项目申报公告",
+        "课题申报"
+      ]
+    },
+    {
+      "id": "beijing-education",
+      "region": "北京市",
+      "host": "北京市教育委员会、北京市教育科学规划网",
+      "url": "https://gh.bjedu.cn/ghsite/zxtzgg/",
+      "keywords": [
+        "教育科学规划",
+        "课题申报",
+        "项目申报",
+        "年度课题"
+      ]
+    },
+    {
+      "id": "beijing-postdoc",
+      "region": "北京市",
+      "host": "北京市人力资源和社会保障局",
+      "url": "https://rsj.beijing.gov.cn/xxgk/2024qt/",
+      "keywords": [
+        "博士后工作经费",
+        "博士后资助",
+        "博士后科研活动",
+        "申报通知"
+      ]
+    },
+    {
+      "id": "guangdong-science",
+      "region": "广东省",
+      "host": "广东省科学技术厅",
+      "url": "https://gdstc.gd.gov.cn/zwgk_n/tzgg/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究基金",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "guangdong-social",
+      "region": "广东省",
+      "host": "广东省哲学社会科学规划领导小组办公室",
+      "url": "https://www.gdpplgopss.org.cn/tzgg/",
+      "keywords": [
+        "哲学社会科学规划",
+        "项目申报",
+        "课题申报",
+        "专项申报"
+      ]
+    },
+    {
+      "id": "guangdong-education",
+      "region": "广东省",
+      "host": "广东省教育厅、高校科研管理部门",
+      "url": "https://kyy.scau.edu.cn/",
+      "keywords": [
+        "高等学校科研平台和项目",
+        "教育科学规划",
+        "教育科研项目",
+        "青年创新人才"
+      ]
+    },
+    {
+      "id": "guangdong-postdoc",
+      "region": "广东省",
+      "host": "广东省人力资源和社会保障厅",
+      "url": "https://hrss.gd.gov.cn/",
+      "keywords": [
+        "博士后",
+        "湾区项目",
+        "香江学者",
+        "博士后资助"
+      ]
+    },
+    {
+      "id": "tianjin-natural-science",
+      "region": "天津市",
+      "host": "天津市科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kxjs.tj.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "tianjin-social-science",
+      "region": "天津市",
+      "host": "天津市社科规划办 / 社科联",
+      "url": "https://www.tjskw.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "tianjin-education",
+      "region": "天津市",
+      "host": "天津市教育主管部门 / 教育科学规划办",
+      "url": "https://jy.tj.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "tianjin-postdoctoral",
+      "region": "天津市",
+      "host": "天津市人社部门（博士后工作）",
+      "url": "https://hrss.tj.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hebei-natural-science",
+      "region": "河北省",
+      "host": "河北省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.hebei.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "hebei-social-science",
+      "region": "河北省",
+      "host": "河北省社科规划办 / 社科联",
+      "url": "https://www.hebsky.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hebei-education",
+      "region": "河北省",
+      "host": "河北省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.hebei.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hebei-postdoctoral",
+      "region": "河北省",
+      "host": "河北省人社部门（博士后工作）",
+      "url": "https://rst.hebei.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shanxi-natural-science",
+      "region": "山西省",
+      "host": "山西省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.shanxi.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "shanxi-social-science",
+      "region": "山西省",
+      "host": "山西省社科规划办 / 社科联",
+      "url": "https://www.sxskw.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shanxi-education",
+      "region": "山西省",
+      "host": "山西省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.shanxi.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shanxi-postdoctoral",
+      "region": "山西省",
+      "host": "山西省人社部门（博士后工作）",
+      "url": "https://rst.shanxi.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "neimenggu-natural-science",
+      "region": "内蒙古自治区",
+      "host": "内蒙古自治区科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.nmg.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "neimenggu-social-science",
+      "region": "内蒙古自治区",
+      "host": "内蒙古自治区社科规划办 / 社科联",
+      "url": "https://www.nmgskghb.com.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "neimenggu-education",
+      "region": "内蒙古自治区",
+      "host": "内蒙古自治区教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.nmg.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "neimenggu-postdoctoral",
+      "region": "内蒙古自治区",
+      "host": "内蒙古自治区人社部门（博士后工作）",
+      "url": "https://rst.nmg.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "liaoning-natural-science",
+      "region": "辽宁省",
+      "host": "辽宁省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.ln.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "liaoning-social-science",
+      "region": "辽宁省",
+      "host": "辽宁省社科规划办 / 社科联",
+      "url": "https://www.lnskl.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "liaoning-education",
+      "region": "辽宁省",
+      "host": "辽宁省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.ln.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "liaoning-postdoctoral",
+      "region": "辽宁省",
+      "host": "辽宁省人社部门（博士后工作）",
+      "url": "https://rst.ln.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jilin-natural-science",
+      "region": "吉林省",
+      "host": "吉林省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.jl.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "jilin-social-science",
+      "region": "吉林省",
+      "host": "吉林省社科规划办 / 社科联",
+      "url": "https://www.jlskl.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jilin-education",
+      "region": "吉林省",
+      "host": "吉林省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.jl.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jilin-postdoctoral",
+      "region": "吉林省",
+      "host": "吉林省人社部门（博士后工作）",
+      "url": "https://hrss.jl.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "heilongjiang-natural-science",
+      "region": "黑龙江省",
+      "host": "黑龙江省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.hlj.gov.cn/kjt/c113905/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "heilongjiang-social-science",
+      "region": "黑龙江省",
+      "host": "黑龙江省社科规划办 / 社科联",
+      "url": "https://www.hljskl.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "heilongjiang-education",
+      "region": "黑龙江省",
+      "host": "黑龙江省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.hlj.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "heilongjiang-postdoctoral",
+      "region": "黑龙江省",
+      "host": "黑龙江省人社部门（博士后工作）",
+      "url": "https://hrss.hlj.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangsu-natural-science",
+      "region": "江苏省",
+      "host": "江苏省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kxjst.jiangsu.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "jiangsu-social-science",
+      "region": "江苏省",
+      "host": "江苏省社科规划办 / 社科联",
+      "url": "https://www.js-skl.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangsu-education",
+      "region": "江苏省",
+      "host": "江苏省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.jiangsu.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangsu-postdoctoral",
+      "region": "江苏省",
+      "host": "江苏省人社部门（博士后工作）",
+      "url": "https://jshrss.jiangsu.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "zhejiang-natural-science",
+      "region": "浙江省",
+      "host": "浙江省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://zjnsf.kjt.zj.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "zhejiang-social-science",
+      "region": "浙江省",
+      "host": "浙江省社科规划办 / 社科联",
+      "url": "https://www.zjskw.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "zhejiang-education",
+      "region": "浙江省",
+      "host": "浙江省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.zj.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "zhejiang-postdoctoral",
+      "region": "浙江省",
+      "host": "浙江省人社部门（博士后工作）",
+      "url": "https://rlsbt.zj.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "anhui-natural-science",
+      "region": "安徽省",
+      "host": "安徽省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.ah.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "anhui-social-science",
+      "region": "安徽省",
+      "host": "安徽省社科规划办 / 社科联",
+      "url": "https://www.ahskj.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "anhui-education",
+      "region": "安徽省",
+      "host": "安徽省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.ah.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "anhui-postdoctoral",
+      "region": "安徽省",
+      "host": "安徽省人社部门（博士后工作）",
+      "url": "https://hrss.ah.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "fujian-natural-science",
+      "region": "福建省",
+      "host": "福建省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.fujian.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "fujian-social-science",
+      "region": "福建省",
+      "host": "福建省社科规划办 / 社科联",
+      "url": "https://www.fjskl.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "fujian-education",
+      "region": "福建省",
+      "host": "福建省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.fujian.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "fujian-postdoctoral",
+      "region": "福建省",
+      "host": "福建省人社部门（博士后工作）",
+      "url": "https://rst.fujian.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangxi-natural-science",
+      "region": "江西省",
+      "host": "江西省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.jiangxi.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "jiangxi-social-science",
+      "region": "江西省",
+      "host": "江西省社科规划办 / 社科联",
+      "url": "https://www.jxskw.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangxi-education",
+      "region": "江西省",
+      "host": "江西省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.jiangxi.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "jiangxi-postdoctoral",
+      "region": "江西省",
+      "host": "江西省人社部门（博士后工作）",
+      "url": "https://rst.jiangxi.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shandong-natural-science",
+      "region": "山东省",
+      "host": "山东省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.shandong.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "shandong-social-science",
+      "region": "山东省",
+      "host": "山东省社科规划办 / 社科联",
+      "url": "https://www.skj.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shandong-education",
+      "region": "山东省",
+      "host": "山东省教育主管部门 / 教育科学规划办",
+      "url": "https://edu.shandong.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shandong-postdoctoral",
+      "region": "山东省",
+      "host": "山东省人社部门（博士后工作）",
+      "url": "https://hrss.shandong.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "henan-natural-science",
+      "region": "河南省",
+      "host": "河南省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.henan.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "henan-social-science",
+      "region": "河南省",
+      "host": "河南省社科规划办 / 社科联",
+      "url": "https://www.hnskl.org/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "henan-education",
+      "region": "河南省",
+      "host": "河南省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.henan.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "henan-postdoctoral",
+      "region": "河南省",
+      "host": "河南省人社部门（博士后工作）",
+      "url": "https://hrss.henan.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hubei-natural-science",
+      "region": "湖北省",
+      "host": "湖北省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.hubei.gov.cn/kjdt/tzgg/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "hubei-social-science",
+      "region": "湖北省",
+      "host": "湖北省社科规划办 / 社科联",
+      "url": "https://www.hbskw.com/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hubei-education",
+      "region": "湖北省",
+      "host": "湖北省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.hubei.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hubei-postdoctoral",
+      "region": "湖北省",
+      "host": "湖北省人社部门（博士后工作）",
+      "url": "https://rst.hubei.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hunan-natural-science",
+      "region": "湖南省",
+      "host": "湖南省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.hunan.gov.cn/kjt/zxgz/zkjj/index.html",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "hunan-social-science",
+      "region": "湖南省",
+      "host": "湖南省社科规划办 / 社科联",
+      "url": "https://www.hnsk.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hunan-education",
+      "region": "湖南省",
+      "host": "湖南省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.hunan.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hunan-postdoctoral",
+      "region": "湖南省",
+      "host": "湖南省人社部门（博士后工作）",
+      "url": "https://rst.hunan.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guangxi-natural-science",
+      "region": "广西壮族自治区",
+      "host": "广西壮族自治区科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.gxzf.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "guangxi-social-science",
+      "region": "广西壮族自治区",
+      "host": "广西壮族自治区社科规划办 / 社科联",
+      "url": "https://www.gxskl.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guangxi-education",
+      "region": "广西壮族自治区",
+      "host": "广西壮族自治区教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.gxzf.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guangxi-postdoctoral",
+      "region": "广西壮族自治区",
+      "host": "广西壮族自治区人社部门（博士后工作）",
+      "url": "https://rst.gxzf.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hainan-natural-science",
+      "region": "海南省",
+      "host": "海南省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.hainan.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "hainan-social-science",
+      "region": "海南省",
+      "host": "海南省社科规划办 / 社科联",
+      "url": "https://www.hnskl.net/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hainan-education",
+      "region": "海南省",
+      "host": "海南省教育主管部门 / 教育科学规划办",
+      "url": "https://edu.hainan.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "hainan-postdoctoral",
+      "region": "海南省",
+      "host": "海南省人社部门（博士后工作）",
+      "url": "https://hrss.hainan.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "chongqing-natural-science",
+      "region": "重庆市",
+      "host": "重庆市科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjj.cq.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "chongqing-social-science",
+      "region": "重庆市",
+      "host": "重庆市社科规划办 / 社科联",
+      "url": "https://www.cqskl.com/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "chongqing-education",
+      "region": "重庆市",
+      "host": "重庆市教育主管部门 / 教育科学规划办",
+      "url": "https://jw.cq.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "chongqing-postdoctoral",
+      "region": "重庆市",
+      "host": "重庆市人社部门（博士后工作）",
+      "url": "https://rlsbj.cq.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "sichuan-natural-science",
+      "region": "四川省",
+      "host": "四川省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.sc.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "sichuan-social-science",
+      "region": "四川省",
+      "host": "四川省社科规划办 / 社科联",
+      "url": "https://www.sss.net.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "sichuan-education",
+      "region": "四川省",
+      "host": "四川省教育主管部门 / 教育科学规划办",
+      "url": "https://edu.sc.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "sichuan-postdoctoral",
+      "region": "四川省",
+      "host": "四川省人社部门（博士后工作）",
+      "url": "https://rst.sc.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guizhou-natural-science",
+      "region": "贵州省",
+      "host": "贵州省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.guizhou.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "guizhou-social-science",
+      "region": "贵州省",
+      "host": "贵州省社科规划办 / 社科联",
+      "url": "https://www.gzskl.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guizhou-education",
+      "region": "贵州省",
+      "host": "贵州省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.guizhou.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "guizhou-postdoctoral",
+      "region": "贵州省",
+      "host": "贵州省人社部门（博士后工作）",
+      "url": "https://rst.guizhou.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "yunnan-natural-science",
+      "region": "云南省",
+      "host": "云南省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.yn.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "yunnan-social-science",
+      "region": "云南省",
+      "host": "云南省社科规划办 / 社科联",
+      "url": "https://www.ynskl.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "yunnan-education",
+      "region": "云南省",
+      "host": "云南省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.yn.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "yunnan-postdoctoral",
+      "region": "云南省",
+      "host": "云南省人社部门（博士后工作）",
+      "url": "https://hrss.yn.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xizang-natural-science",
+      "region": "西藏自治区",
+      "host": "西藏自治区科技主管部门（自然科学/基础研究公告）",
+      "url": "https://sti.xizang.gov.cn/xxgk/fdzdgk/tzgg/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "xizang-social-science",
+      "region": "西藏自治区",
+      "host": "西藏自治区社科规划办 / 社科联",
+      "url": "http://www.xzass.org/index",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xizang-education",
+      "region": "西藏自治区",
+      "host": "西藏自治区教育主管部门 / 教育科学规划办",
+      "url": "https://edu.xizang.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xizang-postdoctoral",
+      "region": "西藏自治区",
+      "host": "西藏自治区人社部门（博士后工作）",
+      "url": "https://hrss.xizang.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shaanxi-natural-science",
+      "region": "陕西省",
+      "host": "陕西省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.shaanxi.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "shaanxi-social-science",
+      "region": "陕西省",
+      "host": "陕西省社科规划办 / 社科联",
+      "url": "https://www.sxsskw.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shaanxi-education",
+      "region": "陕西省",
+      "host": "陕西省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.shaanxi.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "shaanxi-postdoctoral",
+      "region": "陕西省",
+      "host": "陕西省人社部门（博士后工作）",
+      "url": "https://rst.shaanxi.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "gansu-natural-science",
+      "region": "甘肃省",
+      "host": "甘肃省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.gansu.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "gansu-social-science",
+      "region": "甘肃省",
+      "host": "甘肃省社科规划办 / 社科联",
+      "url": "https://www.gsskl.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "gansu-education",
+      "region": "甘肃省",
+      "host": "甘肃省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.gansu.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "gansu-postdoctoral",
+      "region": "甘肃省",
+      "host": "甘肃省人社部门（博士后工作）",
+      "url": "https://rst.gansu.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "qinghai-natural-science",
+      "region": "青海省",
+      "host": "青海省科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.qh.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "qinghai-social-science",
+      "region": "青海省",
+      "host": "青海省社科规划办 / 社科联",
+      "url": "https://www.qhsklw.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "qinghai-education",
+      "region": "青海省",
+      "host": "青海省教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.qh.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "qinghai-postdoctoral",
+      "region": "青海省",
+      "host": "青海省人社部门（博士后工作）",
+      "url": "https://rst.qh.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "ningxia-natural-science",
+      "region": "宁夏回族自治区",
+      "host": "宁夏回族自治区科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.nx.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "ningxia-social-science",
+      "region": "宁夏回族自治区",
+      "host": "宁夏回族自治区社科规划办 / 社科联",
+      "url": "https://www.nxskl.gov.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "ningxia-education",
+      "region": "宁夏回族自治区",
+      "host": "宁夏回族自治区教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.nx.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "ningxia-postdoctoral",
+      "region": "宁夏回族自治区",
+      "host": "宁夏回族自治区人社部门（博士后工作）",
+      "url": "https://hrss.nx.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xinjiang-natural-science",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆维吾尔自治区科技主管部门（自然科学/基础研究公告）",
+      "url": "https://kjt.xinjiang.gov.cn/",
+      "keywords": [
+        "自然科学基金",
+        "基础研究",
+        "项目申报",
+        "申报指南"
+      ]
+    },
+    {
+      "id": "xinjiang-social-science",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆维吾尔自治区社科规划办 / 社科联",
+      "url": "https://www.xjskw.org.cn/",
+      "keywords": [
+        "哲学社会科学",
+        "社科规划",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xinjiang-education",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆维吾尔自治区教育主管部门 / 教育科学规划办",
+      "url": "https://jyt.xinjiang.gov.cn/",
+      "keywords": [
+        "教育科学规划",
+        "教育科研项目",
+        "课题申报",
+        "项目申报"
+      ]
+    },
+    {
+      "id": "xinjiang-postdoctoral",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆维吾尔自治区人社部门（博士后工作）",
+      "url": "https://rst.xinjiang.gov.cn/",
+      "keywords": [
+        "博士后资助",
+        "博士后项目",
+        "申报通知",
+        "项目申报"
+      ]
+    }
   ]
 }
