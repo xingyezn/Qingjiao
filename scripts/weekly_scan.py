@@ -29,6 +29,7 @@ EXCLUDED_TITLE_TERMS = (
     "征求意见", "指南建议", "建议征集", "拟立项", "立项名单", "评审结果", "推荐结果",
     "项目公示", "申报培训", "结项", "中期检查", "鉴定专家", "关于公布", "名单",
     "学术交流", "服务基层", "科研流动站", "科研工作站", "创新实践基地", "专栏", "成果文库",
+    "汇总", "解读会", "动员会", "说明会", "宣讲会", "培训会", "讲座",
 )
 POSTDOCTORAL_FUNDING_TERMS = ("基金", "资助", "创新人才", "博新计划", "科研项目", "人才项目")
 SOURCE_WORKERS = 4
@@ -108,15 +109,21 @@ def normalized_url(url: str) -> str:
 def clean_title(title: str) -> str:
     title = html.unescape(re.sub(r"\s+", " ", title)).strip()
     date_prefix = r"^(?:\d{1,2}\s+)?20\d{2}[-/]\d{1,2}(?:[-/ ]\d{1,2})?(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?\s+"
-    while re.match(date_prefix, title):
-        title = re.sub(date_prefix, "", title, count=1)
+    while True:
+        updated = re.sub(date_prefix, "", title, count=1)
+        updated = re.sub(r"^\d{1,2}[-/]\d{1,2}\s+", "", updated, count=1)
+        updated = re.sub(r"^(?:【[^】]{1,24}】|\[[^\]]{1,24}\])\s*", "", updated, count=1)
+        if updated == title:
+            break
+        title = updated
     return re.sub(r"\s*\[20\d{2}[-/]\d{1,2}[-/]\d{1,2}\]$", "", title)
 
 
 def canonical_title(title: str) -> str:
     title = clean_title(title).replace("国家社科基金", "国家社会科学基金").replace("年度", "年")
-    title = re.sub(r"^关于(?:做好|开展|组织)?", "", title)
-    title = re.sub(r"申报工作(?:的)?通知$|申报(?:的)?通知$|申报公告$", "申报", title)
+    title = re.sub(r"^.*?关于(?:发布|转发|组织申报|做好|开展|申报)", "", title)
+    title = re.sub(r"(?:申报|申请)(?:指南)?(?:工作)?(?:的)?(?:通知|公告|通告)?$", "", title)
+    title = re.sub(r"(?:的)?通知$", "", title)
     return re.sub(r"[^\w\u4e00-\u9fff]", "", title)
 
 
