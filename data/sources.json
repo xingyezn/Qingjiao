@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "description": "每周扫描的官方主管部门、项目办公室和高校科研管理部门公告目录。搜索结果只作为待核验线索。",
+  "sources": [
+    {"id":"nsfc","region":"国家级","host":"国家自然科学基金委员会","url":"https://www.nsfc.gov.cn/p1/3381/2824/zntg.html","keywords":["基金","项目指南","申报","申请指南","资助"]},
+    {"id":"nssfc","region":"国家级","host":"全国哲学社会科学工作办公室","url":"https://www.nopss.gov.cn/GB/219469/index.html","keywords":["国家社会科学基金","申报公告","项目申报","专项申报"]},
+    {"id":"education-national","region":"国家级","host":"全国教育科学规划领导小组办公室","url":"https://onsgep.moe.edu.cn/tzgg","keywords":["教育科学规划","项目申报","专项申报","申报公告"]},
+    {"id":"moe","region":"国家级","host":"教育部社会科学司","url":"https://www.moe.gov.cn/s78/A13/tongzhi/","keywords":["人文社会科学","项目申报","申报工作的通知","教育科学"]},
+    {"id":"postdoc-national","region":"国家级","host":"中国博士后科学基金会","url":"https://www.chinapostdoctor.org.cn/","keywords":["博士后科学基金","面上资助","特别资助","博新计划","申报指南"]},
+    {"id":"shanghai-science","region":"上海市","host":"上海市科学技术委员会","url":"https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/","keywords":["自然科学基金","基础研究计划","项目申报指南","申报通知"]},
+    {"id":"shanghai-social","region":"上海市","host":"上海市哲学社会科学规划办公室","url":"https://www.sh-popss.gov.cn/news.asp?ColumID=1&Pname=1","keywords":["课题申报","项目申报","专项课题","指南"]},
+    {"id":"shanghai-education","region":"上海市","host":"上海市教育委员会、高校科研管理部门","url":"https://kyc.usst.edu.cn/855/list3.htm","keywords":["教育科学研究项目","教育科学规划","教育科研项目","项目申报"]},
+    {"id":"shanghai-postdoc","region":"上海市","host":"上海市人力资源和社会保障局","url":"https://rsj.sh.gov.cn/","keywords":["超级博士后","博士后激励计划","博士后资助","博士后项目"]},
+    {"id":"beijing-science","region":"北京市","host":"北京市科学技术委员会、中关村管委会","url":"https://kw.beijing.gov.cn/zwgk/zwgksbrl/","keywords":["自然科学基金","项目申请","项目申报","申请通知"]},
+    {"id":"beijing-social","region":"北京市","host":"北京社科网、北京市社科联","url":"https://www.bjsk.org.cn/","keywords":["社科基金","项目申报","项目申报公告","课题申报"]},
+    {"id":"beijing-education","region":"北京市","host":"北京市教育委员会、北京市教育科学规划网","url":"https://gh.bjedu.cn/ghsite/zxtzgg/","keywords":["教育科学规划","课题申报","项目申报","年度课题"]},
+    {"id":"beijing-postdoc","region":"北京市","host":"北京市人力资源和社会保障局","url":"https://rsj.beijing.gov.cn/xxgk/2024qt/","keywords":["博士后工作经费","博士后资助","博士后科研活动","申报通知"]},
+    {"id":"guangdong-science","region":"广东省","host":"广东省科学技术厅","url":"https://gdstc.gd.gov.cn/zwgk_n/tzgg/","keywords":["自然科学基金","基础研究基金","项目申报","申报指南"]},
+    {"id":"guangdong-social","region":"广东省","host":"广东省哲学社会科学规划领导小组办公室","url":"https://www.gdpplgopss.org.cn/tzgg/","keywords":["哲学社会科学规划","项目申报","课题申报","专项申报"]},
+    {"id":"guangdong-education","region":"广东省","host":"广东省教育厅、高校科研管理部门","url":"https://kyy.scau.edu.cn/","keywords":["高等学校科研平台和项目","教育科学规划","教育科研项目","青年创新人才"]},
+    {"id":"guangdong-postdoc","region":"广东省","host":"广东省人力资源和社会保障厅","url":"https://hrss.gd.gov.cn/","keywords":["博士后","湾区项目","香江学者","博士后资助"]}
+  ]
+}

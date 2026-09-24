@@ -1,0 +1,71 @@
+name: Weekly official notice scan
+
+on:
+  schedule:
+    - cron: "15 9 * * 1"
+      timezone: Asia/Shanghai
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-official-notice-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare the review branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          branch="weekly-notice-scan"
+          open_pr="$(gh pr list --repo "$REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number // ""')"
+          git fetch origin main
+          if [ -n "$open_pr" ]; then
+            git fetch origin "$branch"
+            git checkout -B "$branch" "origin/$branch"
+            git merge --no-edit origin/main
+          else
+            git push origin --delete "$branch" 2>/dev/null || true
+            git checkout -B "$branch" origin/main
+          fi
+
+      - name: Run the official-source scan
+        run: python3 scripts/weekly_scan.py
+
+      - name: Open a review pull request when new notices are found
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          if git diff --quiet -- data/inbox.json; then
+            echo "No new review candidates; no pull request is needed."
+            exit 0
+          fi
+
+          branch="weekly-notice-scan"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/inbox.json
+          git commit -m "chore: add weekly official notice candidates"
+          git push --set-upstream origin "$branch"
+          existing_pr="$(gh pr list --repo "$REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number // ""')"
+          if [ -z "$existing_pr" ]; then
+            gh pr create \
+              --repo "$REPOSITORY" \
+              --head "$branch" \
+              --base main \
+              --title "Weekly official notice candidates" \
+              --body "The weekly scan found new announcement links on registered government, program-office, or university pages. Review each source and eligibility/deadline before moving any entry into the public project catalog."
+          else
+            echo "Updated existing review pull request #$existing_pr."
+          fi

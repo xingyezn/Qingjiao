@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "description": "自动扫描得到的候选公告。未经人工核验不得直接展示为有效申报信息。核实并迁入 projects.json 后，请从本文件删除对应条目。",
+  "candidates": []
+}
