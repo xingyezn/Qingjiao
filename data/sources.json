@@ -1731,6 +1731,336 @@
         "课题",
         "博士后"
       ]
+    },
+    {
+      "id": "university-tianjin",
+      "region": "天津市",
+      "host": "天津大学科研院",
+      "url": "https://kj.tju.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "tju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-hebei",
+      "region": "河北省",
+      "host": "河北大学科学与技术创新研究院",
+      "url": "https://sat.hbu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hbu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-shanxi",
+      "region": "山西省",
+      "host": "山西大学科学技术处",
+      "url": "https://kjc.sxu.edu.cn/tzgg/index.htm",
+      "sourceType": "university",
+      "officialDomain": "sxu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-inner-mongolia",
+      "region": "内蒙古自治区",
+      "host": "内蒙古大学科学技术处",
+      "url": "https://st.imu.edu.cn/index/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "imu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-liaoning",
+      "region": "辽宁省",
+      "host": "大连理工大学科学技术研究院",
+      "url": "https://scidep.dlut.edu.cn/index.htm",
+      "sourceType": "university",
+      "officialDomain": "dlut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-heilongjiang",
+      "region": "黑龙江省",
+      "host": "黑龙江大学社会科学处",
+      "url": "https://shkx.hlju.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hlju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-anhui",
+      "region": "安徽省",
+      "host": "中国科学技术大学科研类通知",
+      "url": "https://www.ustc.edu.cn/tzgg/kyltz.htm",
+      "sourceType": "university",
+      "officialDomain": "ustc.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-jiangxi",
+      "region": "江西省",
+      "host": "南昌大学科学技术处",
+      "url": "https://kjc.ncu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "ncu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-henan",
+      "region": "河南省",
+      "host": "郑州大学社会科学研究院",
+      "url": "https://www5.zzu.edu.cn/ss/",
+      "sourceType": "university",
+      "officialDomain": "zzu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-hubei",
+      "region": "湖北省",
+      "host": "武汉大学科学技术发展研究院",
+      "url": "https://kfy.whu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "whu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-hunan",
+      "region": "湖南省",
+      "host": "湖南大学科学技术研究院",
+      "url": "https://kyy.hnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "hnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-guangxi",
+      "region": "广西壮族自治区",
+      "host": "广西大学科研院",
+      "url": "https://kjc.gxu.edu.cn/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "gxu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-hainan",
+      "region": "海南省",
+      "host": "海南大学科学技术发展院",
+      "url": "https://scitech.hainanu.edu.cn/index/zytz.htm",
+      "sourceType": "university",
+      "officialDomain": "hainanu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-chongqing",
+      "region": "重庆市",
+      "host": "西南大学科学技术发展研究院",
+      "url": "https://kfy.swu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "swu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-guizhou",
+      "region": "贵州省",
+      "host": "贵州大学科学技术研究院",
+      "url": "https://st.gzu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "gzu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-yunnan",
+      "region": "云南省",
+      "host": "昆明理工大学科学技术院",
+      "url": "https://dst.kmust.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "kmust.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-tibet",
+      "region": "西藏自治区",
+      "host": "西藏大学科研处",
+      "url": "https://kyc.utibet.edu.cn/xwdt/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "utibet.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-shaanxi",
+      "region": "陕西省",
+      "host": "西安交通大学科技在线",
+      "url": "https://std.xjtu.edu.cn/index.htm",
+      "sourceType": "university",
+      "officialDomain": "xjtu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-gansu",
+      "region": "甘肃省",
+      "host": "兰州理工大学科学技术处",
+      "url": "https://keji.lut.edu.cn/sy/tzgg.htm",
+      "sourceType": "university",
+      "officialDomain": "lut.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-qinghai",
+      "region": "青海省",
+      "host": "青海师范大学科研处",
+      "url": "https://kjc.qhnu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "qhnu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-ningxia",
+      "region": "宁夏回族自治区",
+      "host": "宁夏大学科学技术研究院",
+      "url": "https://kjc.nxu.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "nxu.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
+    },
+    {
+      "id": "university-xinjiang",
+      "region": "新疆维吾尔自治区",
+      "host": "新疆大学科学技术处",
+      "url": "https://srd.xju.edu.cn/",
+      "sourceType": "university",
+      "officialDomain": "xju.edu.cn",
+      "keywords": [
+        "申报",
+        "申请",
+        "项目指南",
+        "课题",
+        "博士后"
+      ]
     }
   ]
 }
