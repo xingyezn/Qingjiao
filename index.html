@@ -30,17 +30,17 @@
     <section class="hero">
       <div class="hero-inner">
         <div><div class="eyebrow">科研项目申报导航</div><h1>把申报机会，<br>整理得清楚一点。</h1><p>覆盖国家级及中国大陆31个省级行政区，涵盖自然科学、社科、教育和博士后。目录入口与已核验项目分开标明，申报状态以主办单位最新通知为准。</p></div>
-        <div class="hero-stats"><div class="stat"><strong id="totalCount">—</strong><span>项目记录及官方入口</span></div><div class="stat"><strong id="activeCount">—</strong><span>正在申报或即将开放</span></div><div class="stat"><strong>每周</strong><span>自动检查官方来源</span></div></div>
+        <div class="hero-stats"><div class="stat"><strong id="totalCount">—</strong><span>项目记录及官方入口</span></div><div class="stat"><strong id="activeCount">—</strong><span>当前正在申报</span></div><div class="stat"><strong>每周</strong><span>自动检查官方来源</span></div></div>
       </div>
     </section>
     <div class="notice"><strong>自动审核说明</strong>　每周自动扫描政府部门、基金管理机构和高校官方公告，按官方域名、项目类别、申报关键词和年度执行规则审核并收录；仅明确在申报期内的项目标记为“申报中”，不自动推测资格或截止日期。申报资格、时间和材料仍以主办单位原始通知为准。</div>
-    <section id="coverageSection">
-      <div class="section-head"><div><h2>覆盖范围</h2><p>按地区和项目类别查看已核验项目及官方目录入口；目录入口不等于当年申报批次。</p></div></div>
-      <div id="coverage" class="coverage"><div class="loading">正在读取覆盖情况…</div></div>
-    </section>
     <section id="activeProjects">
       <div class="section-head"><div><h2>当前正在申报</h2><p>仅显示系统日期处于申报起止时间内、且有官方通知来源的项目。</p></div></div>
       <div id="activeCards" class="cards"><div class="loading">正在检查申报状态…</div></div>
+    </section>
+    <section id="coverageSection">
+      <div class="section-head"><div><h2>覆盖范围</h2><p>按地区和项目类别查看已核验项目及官方目录入口；目录入口不等于当年申报批次。</p></div></div>
+      <div id="coverage" class="coverage"><div class="loading">正在读取覆盖情况…</div></div>
     </section>
     <section id="projects">
       <div class="section-head"><div><h2>项目库</h2><p>每次先显示 12 项，可继续加载；当前申报项目已在上方集中展示。</p></div></div>
@@ -59,7 +59,7 @@
       <div id="sourceList" class="source-list"><div class="loading">正在读取来源目录…</div></div>
     </section>
   </main>
-  <footer><div class="wrap">青椒之梯 · 页面数据与前端分离维护。最新核验日期：<span id="lastVerified">—</span>。提交新的官方通知线索，欢迎通过 GitHub Issue 或 Pull Request 贡献。</div></footer>
+  <footer><div class="wrap">青椒之梯 · 页面数据与前端分离维护。最新核验日期：<span id="lastVerified">—</span>。每周扫描和规则审核自动运行。</div></footer>
   <script src="app.js" defer></script>
 </body>
 </html>
