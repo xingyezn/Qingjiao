@@ -54,7 +54,6 @@ jobs:
           branch="weekly-notice-scan"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$branch"
           git add data/inbox.json
           git commit -m "chore: add weekly official notice candidates"
           git push --set-upstream origin "$branch"
