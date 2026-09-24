@@ -16,6 +16,42 @@
     },
     {
       "region": "福建省",
+      "sourceHost": "福建省科技主管部门（自然科学/基础研究公告）",
+      "sourceId": "fujian-natural-science",
+      "listingUrl": "https://kjt.fujian.gov.cn/",
+      "title": "福建省科技计划项目清单（2025年新立项）",
+      "noticeUrl": "https://kjt.fujian.gov.cn/xxgk/tjxx/tjsj/202604/t20260402_7118845.htm",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "381869f6153dd927"
+    },
+    {
+      "region": "福建省",
+      "sourceHost": "福建省科技主管部门（自然科学/基础研究公告）",
+      "sourceId": "fujian-natural-science",
+      "listingUrl": "https://kjt.fujian.gov.cn/",
+      "title": "福建省科学技术厅关于组织申报2026年企业自主研发和委托研发项目认定为省级科技计划项目的通知",
+      "noticeUrl": "https://kjt.fujian.gov.cn/xxgk/ghjhlm/ndjh/202608/t20260814_7199960.htm",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "ec13625d65b3bff7"
+    },
+    {
+      "region": "福建省",
+      "sourceHost": "福建省人社部门（博士后工作）",
+      "sourceId": "fujian-postdoctoral",
+      "listingUrl": "https://rst.fujian.gov.cn/",
+      "title": "福建省人力资源和社会保障厅办公室关于公布2026年新设立博士后科研工作站单位名单的通知",
+      "noticeUrl": "https://rst.fujian.gov.cn/zw/zfxxgk/zfxxgkml/zyywgz/zynljs/202609/t20260908_7210212.htm",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "4d5336978fdc045f"
+    },
+    {
+      "region": "福建省",
       "sourceHost": "福建省人社部门（博士后工作）",
       "sourceId": "fujian-postdoctoral",
       "listingUrl": "https://rst.fujian.gov.cn/",
@@ -157,6 +193,42 @@
       "reviewStatus": "待人工核验",
       "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
       "id": "df44dd65afed646e"
+    },
+    {
+      "region": "新疆维吾尔自治区",
+      "sourceHost": "新疆维吾尔自治区人社部门（博士后工作）",
+      "sourceId": "xinjiang-postdoctoral",
+      "listingUrl": "https://rst.xinjiang.gov.cn/",
+      "title": "关于开展自治区2026年度新设博士后科研流动站申报工作的通知",
+      "noticeUrl": "https://rst.xinjiang.gov.cn/xjrst/c113773/202603/bff508337ce143f1bdfb18d691a36ada.shtml",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "b0ec49a9eb90f390"
+    },
+    {
+      "region": "新疆维吾尔自治区",
+      "sourceHost": "新疆维吾尔自治区人社部门（博士后工作）",
+      "sourceId": "xinjiang-postdoctoral",
+      "listingUrl": "https://rst.xinjiang.gov.cn/",
+      "title": "关于开展2026年新设自治区博士后创新实践基地申报工作的通知",
+      "noticeUrl": "https://rst.xinjiang.gov.cn/xjrst/c112727/202609/53ec81a8219244e6a3efa75e77ccaead.shtml",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "ecdb096eeae461d5"
+    },
+    {
+      "region": "新疆维吾尔自治区",
+      "sourceHost": "新疆维吾尔自治区人社部门（博士后工作）",
+      "sourceId": "xinjiang-postdoctoral",
+      "listingUrl": "https://rst.xinjiang.gov.cn/",
+      "title": "关于开展2026年度自治区博士后学术交流和服务基层活动申报工作的通知",
+      "noticeUrl": "https://rst.xinjiang.gov.cn/xjrst/c113773/202607/ab8d279449c54130a17ea5c35897863f.shtml",
+      "discoveredAt": "2026-09-24",
+      "reviewStatus": "待人工核验",
+      "reviewNotes": "确认主办单位、项目类别、发布日期、申报条件和截止日期后，再转入 projects.json。",
+      "id": "8dde0dc671196459"
     },
     {
       "region": "新疆维吾尔自治区",
