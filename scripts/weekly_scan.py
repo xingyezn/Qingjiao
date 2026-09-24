@@ -177,6 +177,8 @@ def main() -> int:
                 for item in new_candidates:
                     summary.write(f"- [{item['title']}]({item['noticeUrl']}) — {item['region']} / {item['sourceHost']}\n")
     print(f"Checked {checked} source pages; found {len(new_candidates)} new candidates; {len(errors)} errors.")
+    for host, error in errors:
+        print(f"Source fetch failed [{host}]: {error[:240]}")
     return 0
 
 
