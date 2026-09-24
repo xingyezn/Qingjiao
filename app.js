@@ -15,6 +15,8 @@ const statusLabels = {
 
 let regions = [];
 let projects = [];
+const pageSize = 12;
+let visibleProjectCount = pageSize;
 
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -69,13 +71,47 @@ function renderProjects() {
   const status = document.querySelector("#status").value;
   const filtered = projects.filter((project) => {
     const haystack = [project.name, project.host, project.region, project.summary, project.year].join(" ").toLocaleLowerCase("zh-CN");
-    return (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category) && (!status || project.status === status);
+    const active = isCurrentlyOpen(project);
+    // Show current calls in the dedicated section above. The main list contains
+    // other records by default, while an explicit status filter can include them.
+    const statusMatches = !status || (status === "open" ? active : project.status === status);
+    return (status ? statusMatches : !active) && (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category);
   }).sort((a, b) => {
     const rank = { open: 0, upcoming: 1, announced: 2, reference: 3, closed: 4 };
     return (rank[a.status] ?? 9) - (rank[b.status] ?? 9) || (b.year || 0) - (a.year || 0) || a.name.localeCompare(b.name, "zh-CN");
   });
   document.querySelector("#resultsMeta").textContent = `显示 ${filtered.length} / ${projects.length} 项`;
-  document.querySelector("#cards").innerHTML = filtered.length ? filtered.map(projectCard).join("") : `<div class="empty">没有符合筛选条件的项目。</div>`;
+  const pageItems = filtered.slice(0, visibleProjectCount);
+  document.querySelector("#cards").innerHTML = pageItems.length ? pageItems.map(projectCard).join("") : `<div class="empty">没有符合筛选条件的项目。</div>`;
+  const pagination = document.querySelector("#pagination");
+  pagination.innerHTML = filtered.length > pageItems.length
+    ? `<button class="button" id="loadMore">加载更多（${pageItems.length}/${filtered.length}）</button>`
+    : filtered.length > pageSize
+      ? `<button class="button" id="showLess">收起列表</button><span>已显示全部 ${filtered.length} 项</span>`
+      : filtered.length ? `<span>共 ${filtered.length} 项</span>` : "";
+  document.querySelector("#loadMore")?.addEventListener("click", () => {
+    visibleProjectCount += pageSize;
+    renderProjects();
+  });
+  document.querySelector("#showLess")?.addEventListener("click", () => {
+    visibleProjectCount = pageSize;
+    renderProjects();
+    document.querySelector("#projects").scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+function isCurrentlyOpen(project) {
+  if (project.status !== "open") return false;
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai" }).format(new Date());
+  return (!project.startAt || project.startAt.slice(0, 10) <= today) && (!project.deadline || project.deadline.slice(0, 10) >= today);
+}
+
+function renderActiveProjects() {
+  const active = projects.filter(isCurrentlyOpen).sort((a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"));
+  document.querySelector("#activeCount").textContent = active.length;
+  document.querySelector("#activeCards").innerHTML = active.length
+    ? active.map(projectCard).join("")
+    : `<div class="empty">目前没有已确认仍在申报期内的项目。每周自动扫描新通知，符合规则的官方公告会自动收录。</div>`;
 }
 
 function renderSources(sources) {
@@ -89,13 +125,16 @@ async function init() {
   const sourceData = await sourceResponse.json();
   projects = projectData.projects;
   document.querySelector("#totalCount").textContent = projects.length;
-  document.querySelector("#activeCount").textContent = projects.filter((item) => ["open", "upcoming"].includes(item.status)).length;
   document.querySelector("#lastVerified").textContent = projectData.lastVerified || "—";
   populateOptions([...new Set([...projects.map((project) => project.region), ...sourceData.sources.map((source) => source.region)])]);
   renderCoverage();
+  renderActiveProjects();
   renderProjects();
   renderSources(sourceData.sources);
-  ["#search", "#region", "#category", "#status"].forEach((selector) => document.querySelector(selector).addEventListener("input", renderProjects));
+  ["#search", "#region", "#category", "#status"].forEach((selector) => document.querySelector(selector).addEventListener("input", () => {
+    visibleProjectCount = pageSize;
+    renderProjects();
+  }));
 }
 
 document.querySelector("#themeToggle").addEventListener("click", () => {
