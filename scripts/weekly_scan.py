@@ -17,18 +17,25 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urldefrag, urljoin, urlparse
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES_FILE = ROOT / "data" / "sources.json"
 PROJECTS_FILE = ROOT / "data" / "projects.json"
 YEAR_PATTERN = re.compile(r"20\d{2}")
-INTENT_TERMS = ("申报", "申请", "指南", "项目", "课题", "资助", "博士后")
-EXCLUDED_TITLE_TERMS = ("征求意见", "指南建议", "建议征集", "拟立项", "立项名单", "评审结果", "推荐结果", "项目公示", "申报培训")
+INTENT_TERMS = ("申报", "申请", "指南", "招标")
+EXCLUDED_TITLE_TERMS = (
+    "征求意见", "指南建议", "建议征集", "拟立项", "立项名单", "评审结果", "推荐结果",
+    "项目公示", "申报培训", "结项", "中期检查", "鉴定专家", "关于公布", "名单",
+    "学术交流", "服务基层", "科研流动站", "科研工作站", "创新实践基地", "专栏", "成果文库",
+)
+POSTDOCTORAL_FUNDING_TERMS = ("基金", "资助", "创新人才", "博新计划", "科研项目", "人才项目")
 SOURCE_WORKERS = 4
 MAX_UNIVERSITY_NOTICES_PER_SOURCE = 8
 MAX_PAGE_BYTES = 5_000_000
 MAX_NOTICE_BYTES = 8_000_000
+SITE_TIMEZONE = ZoneInfo("Asia/Shanghai")
 
 CATEGORY_TERMS = {
     "natural-science": ("自然科学", "科技计划", "基础研究", "科学基金", "科研项目", "重点研发计划", "科技重大专项"),
@@ -100,7 +107,17 @@ def normalized_url(url: str) -> str:
 
 def clean_title(title: str) -> str:
     title = html.unescape(re.sub(r"\s+", " ", title)).strip()
-    return re.sub(r"^\d{1,2}\s+20\d{2}[-/]\d{1,2}\s+", "", title)
+    date_prefix = r"^(?:\d{1,2}\s+)?20\d{2}[-/]\d{1,2}(?:[-/ ]\d{1,2})?(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?\s+"
+    while re.match(date_prefix, title):
+        title = re.sub(date_prefix, "", title, count=1)
+    return re.sub(r"\s*\[20\d{2}[-/]\d{1,2}[-/]\d{1,2}\]$", "", title)
+
+
+def canonical_title(title: str) -> str:
+    title = clean_title(title).replace("国家社科基金", "国家社会科学基金").replace("年度", "年")
+    title = re.sub(r"^关于(?:做好|开展|组织)?", "", title)
+    title = re.sub(r"申报工作(?:的)?通知$|申报(?:的)?通知$|申报公告$", "申报", title)
+    return re.sub(r"[^\w\u4e00-\u9fff]", "", title)
 
 
 def allowed_domain(url: str, source: dict) -> bool:
@@ -162,6 +179,16 @@ def category_matches(title: str, category: str) -> bool:
     return any(term in title for term in CATEGORY_TERMS[category])
 
 
+def valid_notice_title(title: str, category: str | None) -> bool:
+    return bool(
+        category and len(title) >= 8 and category_matches(title, category)
+        and any(term in title for term in INTENT_TERMS)
+        and not any(term in title for term in EXCLUDED_TITLE_TERMS)
+        and "..." not in title and "…" not in title
+        and (category != "postdoctoral" or any(term in title for term in POSTDOCTORAL_FUNDING_TERMS))
+    )
+
+
 def category_for_notice(source: dict, title: str) -> str | None:
     if source.get("sourceType") == "university":
         for category in ("postdoctoral", "education", "social-science", "natural-science"):
@@ -172,17 +199,21 @@ def category_for_notice(source: dict, title: str) -> str | None:
 
 
 def region_for_notice(source: dict, title: str) -> str | None:
-    if source.get("sourceType") != "university":
-        return source.get("region")
     if any(term in title for term in NATIONAL_TERMS):
         return "国家级"
+    if source.get("sourceType") != "university":
+        return source.get("region")
     region = source.get("region", "")
     return region if region and region in title else None
 
 
 def calendar_years() -> set[int]:
-    year = date.today().year
+    year = local_today().year
     return {year, year + 1}
+
+
+def local_today() -> date:
+    return datetime.now(SITE_TIMEZONE).date()
 
 
 def extract_date(text: str, context_pattern: str) -> date | None:
@@ -201,9 +232,7 @@ def to_iso(value: date | None) -> str | None:
 
 def review_notice(source: dict, listing_url: str, title: str, notice_url: str) -> dict | None:
     category = category_for_notice(source, title)
-    if not category or len(title) < 8 or not category_matches(title, category):
-        return None
-    if any(term in title for term in EXCLUDED_TITLE_TERMS):
+    if not valid_notice_title(title, category):
         return None
     region = region_for_notice(source, title)
     if not region:
@@ -229,7 +258,7 @@ def review_notice(source: dict, listing_url: str, title: str, notice_url: str) -
     if len(body.strip()) < 80 or not any(term in body for term in INTENT_TERMS):
         return None
 
-    today = date.today()
+    today = local_today()
     start_at = extract_date(body, r"(?:申报|申请|受理)(?:时间|期限|日期)?(?:自|从|为|：|:)?")
     deadline = extract_date(body, r"(?:截止|截至|申报至|受理至|提交至)(?:时间|日期)?(?:为|：|:)?")
     # A notice is listed as currently open only when its official text states
@@ -264,14 +293,12 @@ def scan_source(source: dict) -> tuple[int, list[dict], tuple[str, str] | None]:
             title = clean_title(raw_title)
             if not any(term in title for term in (source.get("keywords") or INTENT_TERMS)):
                 continue
-            if any(term in title for term in EXCLUDED_TITLE_TERMS):
-                continue
             notice_url = normalized_url(urljoin(listing_url, href))
             if notice_url == normalized_url(listing_url):
                 continue
             if urlparse(notice_url).scheme != "https" or not allowed_domain(notice_url, source):
                 continue
-            if not category_for_notice(source, title) or not region_for_notice(source, title):
+            if not valid_notice_title(title, category_for_notice(source, title)) or not region_for_notice(source, title):
                 continue
             if not any(int(value) in calendar_years() for value in YEAR_PATTERN.findall(title)):
                 continue
@@ -291,12 +318,12 @@ def scan_source(source: dict) -> tuple[int, list[dict], tuple[str, str] | None]:
                 "sourceUrl": notice_url,
                 "sourceType": source.get("sourceType", "government"),
                 "sourceInstitution": source.get("host", ""),
-                "sourceCheckedAt": date.today().isoformat(),
+                "sourceCheckedAt": local_today().isoformat(),
                 "applicationUrl": None,
-                "checkedAt": date.today().isoformat(),
+                "checkedAt": local_today().isoformat(),
                 "automaticReview": {
                     "decision": "approved",
-                    "rulesVersion": 1,
+                    "rulesVersion": 2,
                     "reviewedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 },
             })
@@ -305,10 +332,49 @@ def scan_source(source: dict) -> tuple[int, list[dict], tuple[str, str] | None]:
         return 0, [], (source.get("host", source.get("id", listing_url)), str(error))
 
 
+def sanitize_auto_projects(projects: list[dict]) -> tuple[list[dict], bool, int]:
+    """Reapply current rules to previously auto-published records."""
+    manual = [item for item in projects if not item.get("id", "").startswith("auto-")]
+    auto = [item for item in projects if item.get("id", "").startswith("auto-")]
+    cleaned = []
+    changed = False
+    removed = 0
+    seen_titles = {(item.get("region"), item.get("category"), canonical_title(item.get("name", ""))) for item in manual}
+    central_hosts = {"www.nopss.gov.cn", "onsgep.moe.edu.cn", "www.nsfc.gov.cn", "www.chinapostdoctor.org.cn"}
+    auto.sort(key=lambda entry: (
+        entry.get("sourceType") == "university",
+        (urlparse(entry.get("sourceUrl", "")).hostname or "") not in central_hosts,
+    ))
+    for item in auto:
+        title = clean_title(item.get("name", ""))
+        if not valid_notice_title(title, item.get("category")):
+            removed += 1
+            changed = True
+            continue
+        if title != item["name"]:
+            item["name"] = title
+            changed = True
+        if any(term in title for term in NATIONAL_TERMS) and item.get("region") != "国家级":
+            item["region"] = "国家级"
+            item["level"] = "国家级"
+            changed = True
+        title_key = (item.get("region"), item.get("category"), canonical_title(title))
+        if title_key in seen_titles:
+            removed += 1
+            changed = True
+            continue
+        seen_titles.add(title_key)
+        cleaned.append(item)
+    result = manual + cleaned
+    if [item.get("id") for item in result] != [item.get("id") for item in projects]:
+        changed = True
+    return result, changed, removed
+
+
 def main() -> int:
     source_data = read_json(SOURCES_FILE, {"sources": []})
     project_data = read_json(PROJECTS_FILE, {"projects": []})
-    projects = project_data.get("projects", [])
+    projects, sanitized, removed = sanitize_auto_projects(project_data.get("projects", []))
     missing_sources = [
         item.get("id", "未命名") for item in projects
         if item.get("recordType") != "official-source-index"
@@ -318,6 +384,7 @@ def main() -> int:
         print(f"Project source URLs must be valid HTTPS links: {', '.join(missing_sources)}", file=sys.stderr)
         return 1
     known_urls = {normalized_url(item.get("sourceUrl", "")) for item in projects if item.get("sourceUrl")}
+    known_titles = {(item.get("region"), item.get("category"), canonical_title(item.get("name", ""))) for item in projects if item.get("recordType") != "official-source-index"}
     new_projects: list[dict] = []
     errors: list[tuple[str, str]] = []
     checked = 0
@@ -329,22 +396,24 @@ def main() -> int:
                 errors.append(error)
             for record in records:
                 target = normalized_url(record["sourceUrl"])
-                if target in known_urls:
+                title_key = (record["region"], record["category"], canonical_title(record["name"]))
+                if target in known_urls or title_key in known_titles:
                     continue
                 digest = hashlib.sha256(target.encode("utf-8")).hexdigest()[:16]
                 record["id"] = f"auto-{digest}"
                 known_urls.add(target)
+                known_titles.add(title_key)
                 new_projects.append(record)
 
     if checked == 0:
         print("No official source page could be fetched; failing the scan.", file=sys.stderr)
         return 1
 
-    if new_projects:
+    if new_projects or sanitized:
         projects.extend(new_projects)
         projects.sort(key=lambda item: (item.get("status") != "open", item.get("deadline") or "9999", item.get("region", ""), item.get("name", "")))
         project_data["projects"] = projects
-        project_data["lastVerified"] = date.today().isoformat()
+        project_data["lastVerified"] = local_today().isoformat()
         PROJECTS_FILE.write_text(json.dumps(project_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -353,6 +422,7 @@ def main() -> int:
             summary.write("## 青椒之梯每周自动审核扫描\n\n")
             summary.write(f"- 成功读取来源：{checked}/{len(sources)}\n")
             summary.write(f"- 自动通过并收录：{len(new_projects)} 条\n")
+            summary.write(f"- 按最新规则清理旧记录：{removed} 条\n")
             summary.write(f"- 其中高校来源：{sum(item.get('sourceType') == 'university' for item in new_projects)} 条\n")
             summary.write(f"- 自动拒绝/忽略低置信度线索，不进入人工队列\n")
             if errors:
@@ -361,7 +431,7 @@ def main() -> int:
                 summary.write("\n### 自动收录公告\n")
                 for item in new_projects:
                     summary.write(f"- [{item['name']}]({item['sourceUrl']}) — {item['region']} / {item['category']} / {item['statusText']}\n")
-    print(f"Checked {checked} source pages; automatically published {len(new_projects)} notices; {len(errors)} errors.")
+    print(f"Checked {checked} source pages; automatically published {len(new_projects)} notices; removed {removed} stale records; {len(errors)} errors.")
     for host, error in errors:
         print(f"Source fetch failed [{host}]: {error[:240]}")
     return 0
