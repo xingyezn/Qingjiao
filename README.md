@@ -23,13 +23,13 @@
 
 ## 每周公告扫描
 
-`.github/workflows/weekly-notice-scan.yml` 每周一 09:15（Asia/Shanghai）运行，也可以从 GitHub Actions 页面手动运行。扫描程序读取 `data/sources.json` 中登记的政府部门、项目办公室、社科联和高校公告页，寻找项目/申报/指南关键词及近年通知链接。高校来源逐省补充，政府与高校公告页均需持续校准。
+Codex 桌面应用的“青椒之梯每周项目更新”定时任务每周一 09:15（Asia/Shanghai）在本地仓库运行 [项目 skill](.agents/skills/qingjiao-weekly-refresh/SKILL.md)。它先同步 `main`，检索新公告并核验来源，再调用 `scripts/codex_weekly_refresh.py publish` 运行规则扫描、校验数据并将变更推送到 GitHub。电脑和 Codex 桌面应用需在任务执行时保持运行，仓库需可访问，Git 推送凭据需有效。GitHub Actions 的自动定时触发已关闭；`.github/workflows/weekly-notice-scan.yml` 仅保留手动运行入口。
 
 来源目录包含高校科研、社科及博士后管理部门的通知入口。扫描校验来源域名、项目意图、年度、正文及类别，并根据通知判断所属地区。登记来源不代表已经核实该地区所有类别的年度项目；新通知须通过规则审核后才进入项目库。
 
-符合规则的新通知由 GitHub Actions 使用仓库自带的 `GITHUB_TOKEN` 自动写入默认分支；不创建审核 PR，不需要人工处理。没有符合条件的新通知时不提交变更。定时工作流须保留在默认分支上。
+符合规则的新通知由本地 Codex 任务自动审核并写入默认分支；不创建审核 PR，不需要人工处理。没有数据变化时不提交。脚本只提交 `data/projects.json` 和 `data/sources.json`；本地有其他修改、远端分支已变化或扫描失败时停止发布并报告原因。
 
-自动审核采用保守规则，不调用外部 AI 服务或 API 密钥；规则无法确认的项目不会自动标成“申报中”。扫描基于已登记的公告页，不等同于全网搜索；少数网站采用脚本渲染、验证码或页面改版时可能无法自动读取。每周运行结果会列出成功/失败来源和自动收录数量。
+自动审核采用保守规则。Codex 负责补充检索与核验，Python 扫描器负责已登记公告页的规则检查；规则无法确认的项目不会自动标成“申报中”。少数网站采用脚本渲染、验证码或页面改版时可能无法自动读取。每周运行结果会列出成功/失败来源和自动收录数量。
 
 ## 本地维护
 
@@ -51,8 +51,11 @@ data/
   sources.json      # 每周扫描来源登记表
 scripts/
   weekly_scan.py    # 标准库实现的公告页扫描器
+  codex_weekly_refresh.py  # 同步、校验和安全发布
+.agents/skills/
+  qingjiao-weekly-refresh/SKILL.md  # Codex 每周更新流程
 .github/workflows/
-  weekly-notice-scan.yml
+  weekly-notice-scan.yml  # 仅手动触发
 ```
 
 欢迎提交官方通知链接、项目类别或覆盖缺口。

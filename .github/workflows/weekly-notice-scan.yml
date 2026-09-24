@@ -1,9 +1,6 @@
 name: Weekly official notice scan
 
 on:
-  schedule:
-    - cron: "15 9 * * 1"
-      timezone: Asia/Shanghai
   workflow_dispatch:
 
 permissions:
