@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Prepare the review branch
         env:
@@ -27,6 +29,8 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           branch="weekly-notice-scan"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           open_pr="$(gh pr list --repo "$REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number // ""')"
           git fetch origin main
           if [ -n "$open_pr" ]; then

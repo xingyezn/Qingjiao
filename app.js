@@ -13,7 +13,7 @@ const statusLabels = {
   reference: "常设项目 / 待核验批次"
 };
 
-const regions = ["国家级", "上海市", "北京市", "广东省"];
+let regions = [];
 let projects = [];
 
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
@@ -26,7 +26,8 @@ function formatDate(value) {
   return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat("zh-CN", { dateStyle: "medium", timeZone: "Asia/Shanghai" }).format(date);
 }
 
-function populateOptions() {
+function populateOptions(availableRegions) {
+  regions = ["国家级", ...availableRegions.filter((region) => region !== "国家级").sort((a, b) => a.localeCompare(b, "zh-CN"))];
   const regionSelect = document.querySelector("#region");
   regions.forEach((region) => regionSelect.add(new Option(region, region)));
   const categorySelect = document.querySelector("#category");
@@ -37,8 +38,11 @@ function renderCoverage() {
   const html = regions.map((region) => {
     const inRegion = projects.filter((project) => project.region === region);
     const lines = Object.entries(categories).map(([key, label]) => {
-      const count = inRegion.filter((project) => project.category === key).length;
-      return `<li>${label}<b>${count ? `${count} 项` : "待补充"}</b></li>`;
+      const entries = inRegion.filter((project) => project.category === key);
+      const projectCount = entries.filter((project) => project.recordType !== "official-source-index").length;
+      const sourceCount = entries.filter((project) => project.recordType === "official-source-index").length;
+      const coverageText = [projectCount ? `${projectCount} 项` : "", sourceCount ? `${sourceCount} 个官方入口` : ""].filter(Boolean).join(" + ") || "待补充";
+      return `<li>${label}<b>${coverageText}</b></li>`;
     }).join("");
     return `<article class="coverage-card"><h3>${esc(region)}</h3><ul>${lines}</ul></article>`;
   }).join("");
@@ -87,7 +91,7 @@ async function init() {
   document.querySelector("#totalCount").textContent = projects.length;
   document.querySelector("#activeCount").textContent = projects.filter((item) => ["open", "upcoming"].includes(item.status)).length;
   document.querySelector("#lastVerified").textContent = projectData.lastVerified || "—";
-  populateOptions();
+  populateOptions([...new Set([...projects.map((project) => project.region), ...sourceData.sources.map((source) => source.region)])]);
   renderCoverage();
   renderProjects();
   renderSources(sourceData.sources);
