@@ -124,6 +124,9 @@ def clean_title(title: str) -> str:
 
 def canonical_title(title: str) -> str:
     title = clean_title(title).replace("国家社科基金", "国家社会科学基金").replace("年度", "年")
+    compact_title = re.sub(r"\s+", "", title)
+    if "国家社会科学基金冷门绝学研究专项" in compact_title and "2026" in compact_title:
+        return "2026国家社会科学基金冷门绝学研究专项"
     if "国家量子科技关键材料器件设备研发" in title and "2026" in title and "第一批" in title:
         return "2026国家量子科技关键材料器件设备研发第一批"
     if "生命科学部" in title and "科技活动项目" in title and "第二批" in title and "2026" in title:
