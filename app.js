@@ -196,7 +196,7 @@ function renderProjects() {
     // Show current calls in the dedicated section above. The main list contains
     // other records by default, while an explicit status filter can include them.
     const statusMatches = !status || (status === "open" ? active : currentStatus === status);
-    return (status ? statusMatches : !active) && (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category) && (!selectedYears.size || selectedYears.has(Number(project.year)));
+    return (status ? statusMatches : (!active || Boolean(query))) && (!query || haystack.includes(query)) && (!region || project.region === region) && (!category || project.category === category) && (!selectedYears.size || selectedYears.has(Number(project.year)));
   }).sort((a, b) => {
     const rank = { open: 0, upcoming: 1, announced: 2, reference: 3, closed: 4 };
     return regionRank(a) - regionRank(b) || (rank[effectiveStatus(a)] ?? 9) - (rank[effectiveStatus(b)] ?? 9) || (b.year || 0) - (a.year || 0) || a.name.localeCompare(b.name, "zh-CN");
