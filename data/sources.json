@@ -91,13 +91,16 @@
     {
       "id": "shanghai-education",
       "region": "上海市",
-      "host": "上海市教育委员会、高校科研管理部门",
-      "url": "https://kyc.usst.edu.cn/855/list3.htm",
+      "host": "上海理工大学科技发展研究院项目申报目录",
+      "url": "https://kjc.usst.edu.cn/855/list.htm",
+      "sourceType": "university",
+      "officialDomain": "usst.edu.cn",
       "keywords": [
         "教育科学研究项目",
         "教育科学规划",
         "教育科研项目",
-        "项目申报"
+        "项目申报",
+        "晨光计划"
       ]
     },
     {
@@ -338,6 +341,17 @@
         "教育科研项目",
         "教育科学研究",
         "教育研究课题"
+      ]
+    },
+    {
+      "id": "shanxi-education-planning-office",
+      "region": "山西省",
+      "host": "山西省教育科学规划办公室（山西省教育科学研究院）",
+      "url": "https://www.sxsjky.com/web/list.aspx?MenuId=7e65642d-d515-4323-9f54-1721cd38242b",
+      "keywords": [
+        "教育科学",
+        "专项课题申报",
+        "课题申报"
       ]
     },
     {
