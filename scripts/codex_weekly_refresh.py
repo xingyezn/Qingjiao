@@ -84,13 +84,16 @@ def prepare() -> None:
     print("Local main is clean and up to date.")
 
 
-def publish() -> None:
+def publish(curated: bool = False) -> None:
     require_main()
     unexpected = changed_paths() - set(DATA_FILES)
     if unexpected:
         raise RuntimeError(f"Unexpected local changes; refusing to publish: {', '.join(sorted(unexpected))}")
     require_remote_at_head()
-    scan = subprocess.run([sys.executable, str(ROOT / "scripts" / "weekly_scan.py")], cwd=ROOT)
+    scan_command = [sys.executable, str(ROOT / "scripts" / "weekly_scan.py")]
+    if curated:
+        scan_command.append("--audit-only")
+    scan = subprocess.run(scan_command, cwd=ROOT)
     if scan.returncode:
         raise RuntimeError(f"Weekly scan failed with exit code {scan.returncode}")
     check_data()
@@ -114,14 +117,17 @@ def publish() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("check", "prepare", "publish"))
+    parser.add_argument("--curated", action="store_true", help="Publish only manually verified data after an audit-only source scan")
     args = parser.parse_args()
     try:
+        if args.curated and args.command != "publish":
+            parser.error("--curated requires publish")
         if args.command == "check":
             check_data()
         elif args.command == "prepare":
             prepare()
         else:
-            publish()
+            publish(curated=args.curated)
         return 0
     except (ValueError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired, RuntimeError) as error:
         if isinstance(error, subprocess.CalledProcessError):

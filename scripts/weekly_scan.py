@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import html
 import json
 import os
@@ -425,7 +426,7 @@ def sanitize_auto_projects(projects: list[dict]) -> tuple[list[dict], bool, int]
     return result, changed, removed
 
 
-def main() -> int:
+def main(audit_only: bool = False) -> int:
     source_data = read_json(SOURCES_FILE, {"sources": []})
     project_data = read_json(PROJECTS_FILE, {"projects": []})
     projects, sanitized, removed = sanitize_auto_projects(project_data.get("projects", []))
@@ -463,7 +464,7 @@ def main() -> int:
         print("No official source page could be fetched; failing the scan.", file=sys.stderr)
         return 1
 
-    if new_projects or sanitized:
+    if (new_projects or sanitized) and not audit_only:
         projects.extend(new_projects)
         projects.sort(key=lambda item: (item.get("status") != "open", item.get("deadline") or "9999", item.get("region", ""), item.get("name", "")))
         project_data["projects"] = projects
@@ -485,11 +486,14 @@ def main() -> int:
                 summary.write("\n### 自动收录公告\n")
                 for item in new_projects:
                     summary.write(f"- [{item['name']}]({item['sourceUrl']}) — {item['region']} / {item['category']} / {item['statusText']}\n")
-    print(f"Checked {checked} source pages; automatically published {len(new_projects)} notices; removed {removed} stale records; {len(errors)} errors.")
+    action = "reviewed" if audit_only else "automatically published"
+    print(f"Checked {checked} source pages; {action} {len(new_projects)} notices; removed {0 if audit_only else removed} stale records; {len(errors)} errors.")
     for host, error in errors:
         print(f"Source fetch failed [{host}]: {error[:240]}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--audit-only", action="store_true", help="Review sources without changing project data")
+    raise SystemExit(main(parser.parse_args().audit_only))
